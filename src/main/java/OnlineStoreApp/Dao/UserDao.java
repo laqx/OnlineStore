@@ -1,6 +1,5 @@
 package OnlineStoreApp.Dao;
 
-<<<<<<< HEAD
 import OnlineStoreApp.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -11,19 +10,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-=======
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
-
->>>>>>> origin/Natali
 @Repository
 public class UserDao {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-<<<<<<< HEAD
     // request data from mySQL
     public List<User> getUsers() {
         RowMapper<User> rowMapper = (resultSet, rowNumber) -> mapUser(resultSet);
@@ -43,7 +35,4 @@ public class UserDao {
 
         return user;
     }
-=======
-
->>>>>>> origin/Natali
 }
