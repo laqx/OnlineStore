@@ -1,52 +1,21 @@
 body {
-background-color: #ecf2e8;
+background-color: #edf2ea;
 }
 
 
-.header-section {
-top: 0%;
-left: 0%;
-position: fixed;
-height: 10.4%;
-width: 100%;
-background-color: #c3d6b9;
-}
-
-.header-logo {
-position: fixed;
-width: 200px;
-justify-content: left;
-left: 25px;
-}
-
-.logo {
-max-width: 100%;
-max-height: 100%;
-}
-
-.header-nav {
-display: flex;
-justify-content: center;
-margin-top: 65px;
-}
-
-.header-nav a {
-text-decoration: none;
-text-align: center;
-float: center;
-padding-right: 100px;
-color: #10160d;
-font-size: 25px;
-}
-
-.header-nav a:hover {
-color: #508a32;
+.btn:focus, .btn:active {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 
+.dropdown-menu {
+background-color: #dde7d7;
+}
 
-
-
+.navbar-custom {
+background-color: #b8ccaa;
+}
 
 
 
