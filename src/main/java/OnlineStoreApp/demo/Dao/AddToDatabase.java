@@ -1,4 +1,4 @@
-package OnlineStoreApp.Dao;
+package OnlineStoreApp.demo.Dao;
 
 import java.sql.*;
 

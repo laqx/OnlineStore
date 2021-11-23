@@ -1,4 +1,4 @@
-package OnlineStoreApp.Dao;
+package OnlineStoreApp.demo.Dao;
 
 import OnlineStoreApp.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +34,10 @@ public class UserDao {
         user.setPassword(resultSet.getString("password"));
 
         return user;
+    }
+
+    public void saveUser(User user){
+        jdbcTemplate.update("INSERT INTO users (firstname, lastname, address, email, password) VALUES (?,?,?,?, '123')",
+        user.getFirstName(), user.getLastName(), user.getAddress(), user.getEmail());
     }
 }
