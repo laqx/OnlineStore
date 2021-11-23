@@ -1,6 +1,6 @@
 package OnlineStoreApp.demo.services;
 
-import OnlineStoreApp.demo.Dao.UserDao;
+import OnlineStoreApp.demo.dataBaseAccessObjects.UserDao;
 import OnlineStoreApp.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

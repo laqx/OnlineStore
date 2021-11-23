@@ -7,7 +7,7 @@ public class User {
     String address;
     String email;
     String password;
-
+//  Role role;
 
     public User(long id, String firstName, String lastName, String address, String email, String password){
         this.id=id;

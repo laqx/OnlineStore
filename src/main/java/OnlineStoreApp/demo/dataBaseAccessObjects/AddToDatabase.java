@@ -1,4 +1,4 @@
-package OnlineStoreApp.demo.Dao;
+package OnlineStoreApp.demo.dataBaseAccessObjects;
 
 import java.sql.*;
 
