@@ -15,7 +15,7 @@ public class UserService {
         return userDao.getUsers();
     }
 
-    public User validate(User user){
+    public User validateUser(User user){
         if(!user.getFirstName().isEmpty() && !user.getLastName().isEmpty() &&
         !user.getAddress().isEmpty() && !user.getEmail().isEmpty()){
 
