@@ -12,10 +12,10 @@ import java.util.List;
 @RequestMapping("/shop")
 public class ProductController {
     @GetMapping("/create")
-    public String showOrderForm(final ModelMap modelMap){
+    public String getProductCatalog(final ModelMap modelMap){
         modelMap.addAttribute("product", new Product());
-        modelMap.addAttribute("elements", List.of("one", "two", "three"));
-        return "Product";
+//        modelMap.addAttribute("elements", List.of("one", "two", "three"));
+        return "shop";
     }
    /* @PostMapping("/create")
     public String handleNewOrder(@Valid @ModelAttribute("orderForm") final OrderForm orderForm, final Errors errors){
