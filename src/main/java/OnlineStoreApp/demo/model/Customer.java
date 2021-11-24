@@ -3,34 +3,34 @@ package OnlineStoreApp.demo.model;
 import java.math.BigDecimal;
 
 public class Customer extends User {
-    String address;
-    String city;
-    public Customer (long id, String firstName, String lastName, String email, String password, String address,
-                     String city){
-        super(id, firstName, lastName, email, password);
-    }
-
-    public long getId(){
-        return id;
-    }
-    public String getFirstName(){
-        return firstName;
-    }
-    public String getLastName(){
-        return lastName;
-    }
-    public String getEmail(){
-        return email;
-    }
-    public String getPassword(){
-        return password;
-    }
-    public String getAddress(){
-        return address;
-    }
-    public String getCity(){
-        return city;
-    }
+//    String address;
+//    String city;
+//    public Customer (long id, String firstName, String lastName, String email, String password, String address,
+//                     String city){
+//        super(id, firstName, lastName, email, password);
+//    }
+//
+//    public long getId(){
+//        return id;
+//    }
+//    public String getFirstName(){
+//        return firstName;
+//    }
+//    public String getLastName(){
+//        return lastName;
+//    }
+//    public String getEmail(){
+//        return email;
+//    }
+//    public String getPassword(){
+//        return password;
+//    }
+//    public String getAddress(){
+//        return address;
+//    }
+//    public String getCity(){
+//        return city;
+//    }
 
 
 
