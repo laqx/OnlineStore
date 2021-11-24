@@ -25,7 +25,6 @@ public class RegistrationController {
     @PostMapping("/account")
     public String getUserAccount(@ModelAttribute User user, Model model){
         User validateUser = userService.validateUser(user);
-        return "confirmation";
+        return "user-profile";
     }
 }
-//
