@@ -16,13 +16,13 @@ public class UserService {
     }
 
     public User validateUser(User user){
-        if(!user.getFirstName().isEmpty() && !user.getLastName().isEmpty() &&
+        /*if(!user.getFirstName().isEmpty() && !user.getLastName().isEmpty() &&
         !user.getAddress().isEmpty() && !user.getEmail().isEmpty()){
-
+*/
             userDao.saveUser(user);
             return user;
-        }
+        /*}
 
-        return null;
+        return user;*/
     }
 }
