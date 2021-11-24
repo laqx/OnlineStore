@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html lang="en"xmlns:th="http://www.thymeleaf.org">
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="with=device-width, initial scale=1.0">
@@ -24,10 +28,11 @@
             </div>
 
             <div style="padding-top:30px" class="panel-body" >
-
                 <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
-                <form id="loginform" class="form-horizontal" role="form">
+                <!--login form -->
+                <form id="loginform" class="form-horizontal" role="form"
+                      method="post">
 
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -82,7 +87,11 @@
 
 
             <div class="panel-body" >
-                <form id="signupform" class="form-horizontal" role="form" method="post" th:action="@{/account}" th:object="${userData}">
+
+                <!--registration form -->
+                <form id="signupform" class="form-horizontal" role="form"
+                      method="post" th:action="@{/account}" th:object="${userData}">>
+
 
                     <div id="signupalert" style="display:none" class="alert alert-danger">
                         <p>Error:</p>
@@ -129,6 +138,7 @@
 
     </div>
 </div>
+
 
 
 <footer id="footer"></footer>
