@@ -119,9 +119,21 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="address" class="col-md-3 control-label">Address</label>
+                        <div class="col-md-9">
+                            <input type="address" th:field="*{address}" class="form-control" name="address" placeholder="address">
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label for="password" class="col-md-3 control-label">Password</label>
                         <div class="col-md-9">
                             <input type="password" th:field="*{password}" class="form-control" name="password" placeholder="password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="role" class="col-md-3 control-label">Role</label>
+                        <div class="col-md-9">
+                            <input type="role" th:field="*{role}" class="form-control" name="role" placeholder="role">
                         </div>
                     </div>
 

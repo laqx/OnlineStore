@@ -37,7 +37,7 @@ public class UserDao {
     }
 
     public void saveUser(User user){
-        jdbcTemplate.update("INSERT INTO onlinestore.users (firstname, lastname, email, password) VALUES (?,?,?,?, '123')",
-        user.getFirstName(), user.getLastName(), user.getAddress(), user.getEmail());
+        jdbcTemplate.update("INSERT INTO users (firstname, lastname,  address, email, password, role) VALUES (?,?,?,?,?, '123', ?)",
+        user.getFirstName(), user.getLastName(), user.getAddress(), user.getEmail(), user.getAddress(), user.getPassword());
     }
 }
