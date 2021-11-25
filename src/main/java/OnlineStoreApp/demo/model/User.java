@@ -10,14 +10,16 @@ public class User {
     String role;
 //  Role role;
 
+
     public User(long id, String firstName, String lastName, String address, String email, String password, String role){
         this.id=id;
         this.firstName = firstName;
-        this.lastName=lastName;
-        this.address=address;
+        this.lastName = lastName;
+        this.address = address;
         this.email = email;
         this.password=password;
         this.role=role;
+
 
     }
 
