@@ -31,15 +31,15 @@ public class UserDao {
         user.setAddress(resultSet.getString("address"));
         user.setEmail(resultSet.getString("email"));
         user.setPassword(resultSet.getString("password"));
-        user.setPassword(resultSet.getString("role"));
+//        user.setPassword(resultSet.getString("role"));
 
         return user;
     }
 
     public void saveUser(User user){
 
-        jdbcTemplate.update("INSERT INTO users (firstname, lastname,  address, email, password, role) VALUES (?,?,?,?, '123', ?)",
-        user.getFirstName(), user.getLastName(), user.getAddress(), user.getEmail(), user.getPassword(), user.getRole());
+        jdbcTemplate.update("INSERT INTO users (firstname, lastname,  address, email, password) VALUES (?,?,?,?,?)",
+        user.getFirstName(), user.getLastName(), user.getAddress(), user.getEmail(), user.getPassword());
 
     }
 }

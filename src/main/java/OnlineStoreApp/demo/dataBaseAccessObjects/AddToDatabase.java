@@ -5,9 +5,9 @@ import java.sql.*;
 public class AddToDatabase {
     public static void main(String[] args) {
         try {
-            Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://127.0.0.1:3306/OnlineStore", "root", "Oxford1984");
-//            "jdbc:mysql://localhost:3306/sda_advanced ", "root", "root");
+            Connection connection = DriverManager.getConnection(
+//                    "jdbc:mysql://127.0.0.1:3306/OnlineStore", "root", "Oxford1984");
+            "jdbc:mysql://localhost:3306/onlinestore ", "root", "root");
 //            addNewProduct(con, "roses", 3.00, 1, 55, 1);
 //            addNewSubCategory(con, "candles");
 //            fetchCategory(con);
