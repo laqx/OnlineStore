@@ -19,20 +19,19 @@
 <header id="header"></header>
 
 
-<div class="container">
+<div class="container" style="display: flex; justify-content: center;">
     <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-        <div class="panel panel-info" >
+        <div class="panel panel-info">
             <div class="panel-heading">
                 <div class="panel-title">log in</div>
-                <div style="float:right; font-size: 80%; position: relative; top:-10px color: #1a2214;"><a style ="color: #556f41;" href="#">forgot password?</a></div>
+                <div style="float:right; font-size: 80%; position: relative; top:-10px color: #1a2214;"><a style="color: #556f41;" href="#">forgot password?</a></div>
             </div>
 
-            <div style="padding-top:30px" class="panel-body" >
+            <div style="padding-top:30px" class="panel-body">
                 <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
                 <!--login form -->
-                <form id="loginform" class="form-horizontal" role="form"
-                      method="post">
+                <form id="loginform" class="form-horizontal" role="form" method="post" th:action="@{/login}" th:object="${loginForm}">
 
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -44,8 +43,6 @@
                         <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
                     </div>
 
-
-
                     <div class="input-group">
                         <div class="checkbox">
                             <label>
@@ -54,19 +51,17 @@
                         </div>
                     </div>
 
-
                     <div style="margin-top:10px " class="form-group">
                         <div class=" controls mt-3">
                             <a id="btn-login" href="/OnlineStore/demo/templates/user-profile.html" class="btn btn-success">login</a>
                         </div>
                     </div>
 
-
                     <div class="form-group">
                         <div class=" control">
-                            <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                            <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%">
                                 don't have an account yet?
-                                <a style ="color: #556f41;" href="#register" onClick="$('#loginbox').hide(); $('#signupbox').show()">
+                                <a style="color: #556f41;" href="#register" onclick="$('#loginbox').hide(); $('#signupbox').show()">
                                     register here
                                 </a>
                             </div>
@@ -74,23 +69,22 @@
                     </div>
                 </form>
 
-
-
             </div>
         </div>
     </div>
+
+
     <div id="signupbox" style="display:none; margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         <div class="panel panel-info">
             <div class="panel-heading">
-                <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" style ="color: #556f41;" onclick=" $('#signupbox').hide(); $('#loginbox').show()">sign in instead?</a></div>
+                <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" style="color: #556f41;" onclick=" $('#signupbox').hide(); $('#loginbox').show()">sign in instead?</a></div>
             </div>
 
 
-            <div class="panel-body" >
+            <div class="panel-body">
 
                 <!--registration form -->
-                <form id="signupform" class="form-horizontal" role="form"
-                      method="post" th:action="@{/account}" th:object="${userData}">>
+                <form id="signupform" class="form-horizontal" role="form" method="post" th:action="@{/account}" th:object="${userData}">
 
 
                     <div id="signupalert" style="display:none" class="alert alert-danger">
@@ -102,22 +96,24 @@
 
                         <label for="email" class="col-md-3 control-label">E-mail</label>
                         <div class="col-md-9">
-                            <input type="text"th:field="*{email}" class="form-control" name="email" placeholder="email">
+                            <input type="text" th:field="*{email}" class="form-control" name="email" placeholder="email">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="firstname" class="col-md-3 control-label">Name</label>
+                        <label for="firstName" class="col-md-3 control-label">Name</label>
                         <div class="col-md-9">
-                            <input type="text" th:field="*{firstName}" class="form-control" name="firstname" placeholder="name">
+                            <input type="text" th:field="*{firstName}" class="form-control" name="firstName" placeholder="name">
                         </div>
                     </div>
+
                     <div class="form-group">
-                        <label for="lastname" class="col-md-3 control-label">Surname</label>
+                        <label for="lastName" class="col-md-3 control-label">Surname</label>
                         <div class="col-md-9">
-                            <input type="text" th:field="*{lastName}" class="form-control" name="lastname" placeholder="surname">
+                            <input type="text" th:field="*{lastName}" class="form-control" name="lastName" placeholder="surname">
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label for="password" class="col-md-3 control-label">Password</label>
                         <div class="col-md-9">

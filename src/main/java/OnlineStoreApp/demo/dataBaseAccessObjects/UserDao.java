@@ -6,8 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.List;
 
 @Repository
@@ -37,7 +36,7 @@ public class UserDao {
     }
 
     public void saveUser(User user){
-        jdbcTemplate.update("INSERT INTO onlinestore.users (firstname, lastname, email, password) VALUES (?,?,?,?, '123')",
-        user.getFirstName(), user.getLastName(), user.getAddress(), user.getEmail());
+        jdbcTemplate.update("INSERT INTO onlinestore.users (firstname, lastname, email, password) VALUES (?,?,?,?)",
+        user.getFirstName(), user.getLastName(), user.getEmail(), user.getPassword());
     }
 }
