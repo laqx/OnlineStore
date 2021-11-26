@@ -1,4 +1,5 @@
 package OnlineStoreApp.demo.controllers;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 import OnlineStoreApp.demo.model.User;
@@ -16,6 +17,9 @@ public class RegistrationController {
     @Autowired
     private UserService userService;
 
+ /*   @Autowired
+    private UserRepository userRepo;*/
+
     @GetMapping("/account")
     public String getAccountPage(Model model){
         model.addAttribute("userData", new User());
@@ -25,6 +29,11 @@ public class RegistrationController {
     @PostMapping("/account")
     public String getUserAccount(@ModelAttribute User user, Model model){
         User validateUser = userService.validateUser(user);
-        return "user-profile";
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder ();
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
+
+
+        return "register_success";
     }
 }

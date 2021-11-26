@@ -6,8 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.List;
 
 @Repository
@@ -32,12 +31,15 @@ public class UserDao {
         user.setAddress(resultSet.getString("address"));
         user.setEmail(resultSet.getString("email"));
         user.setPassword(resultSet.getString("password"));
+//        user.setPassword(resultSet.getString("role"));
 
         return user;
     }
 
     public void saveUser(User user){
-        jdbcTemplate.update("INSERT INTO users (firstname, lastname, address, email, password) VALUES (?,?,?,?, '123')",
-        user.getFirstName(), user.getLastName(), user.getAddress(), user.getEmail());
+
+        jdbcTemplate.update("INSERT INTO users (firstname, lastname,  address, email, password) VALUES (?,?,?,?,?)",
+        user.getFirstName(), user.getLastName(), user.getAddress(), user.getEmail(), user.getPassword());
+
     }
 }
