@@ -7,12 +7,13 @@ public class AddToDatabase {
         try {
             Connection connection = DriverManager.getConnection(
 //                    "jdbc:mysql://127.0.0.1:3306/OnlineStore", "root", "Oxford1984");
-            "jdbc:mysql://localhost:3306/onlinestore ", "root", "root");
+//            "jdbc:mysql://localhost:3306/onlinestore ", "root", "root");
+           "jdbc:mysql://localhost:1800/onlinestore", "root", "admin");
 //            addNewProduct(con, "roses", 3.00, 1, 55, 1);
 //            addNewSubCategory(con, "candles");
 //            fetchCategory(con);
-        } catch (Exception e) {
-            System.out.println(e);
+        } catch (Exception err) {
+            System.out.println(err);
         }
     }
 
