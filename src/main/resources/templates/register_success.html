@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration success</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <script>$(function(){$('#header').load('header.html')});</script>
+    <script>$(function(){$('#footer').load('footer.html')});</script>
+</head>
+
+<body>
+
+<!--<form method="post" th:action="@{/register_success}" th:object="${user}">-->
+<div class="form-group">
+    <div class="col-md-offset-3 col-md-9 mt-4">
+        <h3>You have registered successfully!</h3>
+        <button id="btn-signup" type="submit" class="btn btn-success" th:href="/@{account}">Click here to login</button>
+    </div>
+</div>
+
+
+
+</body>
+</html>
