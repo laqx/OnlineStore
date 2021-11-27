@@ -13,19 +13,19 @@ public class Product {
     BigDecimal price;
     long user_id;
     int quantity;
-    long subcategory_id;
+    long subcategory_id_p;
     String description;
       /*  int discount;
     boolean inStock;*/
 
     public Product (long id, String title, BigDecimal price, long user_id, //int discount, boolean inStock,//
-                    int quantity, long subcategory_id, String description){
+                    int quantity, long subcategory_id_p, String description){
         this.id=id;
         this.title = title;
         this.price = price;
         this.user_id=user_id;
         this.quantity = quantity;
-        this.subcategory_id=subcategory_id;
+        this.subcategory_id_p=subcategory_id_p;
         this.description=description;
       /*  this.discount = discount;
         this.inStock = inStock;*/
@@ -72,11 +72,11 @@ public class Product {
     }
 
     public long getSubcategory_id() {
-        return subcategory_id;
+        return subcategory_id_p;
     }
 
     public void setSubcategory_id(long subcategory_id) {
-        this.subcategory_id = subcategory_id;
+        this.subcategory_id_p = subcategory_id_p;
     }
 
     public String getDescription() {
