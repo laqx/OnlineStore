@@ -73,8 +73,8 @@
 
 
 <!-- body -->
-<div class="container" style="display: flex; justify-content: center;">
-    <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+<div class="container" style="display: flex; justify-content: center; background: none;">
+    <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 pb-4">
         <div class="panel panel-info">
             <div class="panel-heading">
                 <div class="panel-title">log in</div>
@@ -131,6 +131,7 @@
     <div id="signupbox" style="display:none; margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         <div class="panel panel-info">
             <div class="panel-heading">
+                <div class="panel-title" style="margin-bottom: 25px">register</div>
                 <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" style="color: #556f41;" onclick=" $('#signupbox').hide(); $('#loginbox').show()">sign in instead?</a></div>
             </div>
 
@@ -148,36 +149,36 @@
 
                     <div class="form-group">
 
-                        <label for="email" class="col-md-3 control-label">E-mail</label>
-                        <div class="col-md-9">
+                        <label for="email" class="control-label">E-mail</label>
+                        <div >
                             <input id="email" type="text" th:field="*{email}" class="form-control" name="email" placeholder="email">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="password" class="col-md-3 control-label">Password</label>
-                        <div class="col-md-9">
+                        <label for="password" class="control-label">Password</label>
+                        <div >
                             <input id="password" type="password" th:field="*{password}" class="form-control" name="password" placeholder="password">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="firstName" class="col-md-3 control-label">Name</label>
-                        <div class="col-md-9">
+                        <label for="firstName" class="control-label">Name</label>
+                        <div>
                             <input id="firstName" type="text" th:field="*{firstName}" class="form-control" name="firstName" placeholder="name">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="lastName" class="col-md-3 control-label">Surname</label>
-                        <div class="col-md-9">
+                        <label for="lastName" class="control-label">Surname</label>
+                        <div>
                             <input id="lastName" type="text" th:field="*{lastName}" class="form-control" name="lastName" placeholder="surname">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="address" class="col-md-3 control-label">Address</label>
-                        <div class="col-md-9">
+                        <label for="address" class="control-label">Address</label>
+                        <div >
                             <input id="address" type="text" th:field="*{address}" class="form-control" name="address" placeholder="address">
                         </div>
                     </div>
@@ -190,7 +191,7 @@
                     </div>-->
 
                     <div class="form-group">
-                        <div class="col-md-offset-3 col-md-9 mt-4">
+                        <div class="col-md-offset-3 mt-4">
                             <button id="btn-signup" type="submit" class="btn btn-success">register</button>
                         </div>
                     </div>
