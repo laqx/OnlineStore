@@ -2,8 +2,6 @@
 
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +18,7 @@
 <nav class="navbar-custom navbar navbar-expand-lg navbar-light  pt-0 mt-0 pb-0 mb-0">
     <nav class="navbar navbar-light pt-0 mt-0 pb-0 mb-0">
         <a class="navbar-brand mr-5" href="/OnlineStore/demo/templates/index.html">
-            <img src="/templates/photos/logo.png" width="200" height=auto alt="">
+            <img th:src="@{/images/logo.png}" width="200" height=auto alt="">
         </a>
     </nav>
     <div class="collapse navbar-collapse ml-5 pt-5 pb-2 pr-5" id="navbarSupportedContent">
@@ -34,7 +32,7 @@
                     <a class="dropdown-item" href="#">planters</a>
                     <a class="dropdown-item" href="#">plant care</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/OnlineStore/demo/templates/shop.html">all products</a>
+                    <a class="dropdown-item" th:href="@{shop}">all products</a>
                 </div>
             </li>
             <li class="nav-item pl-9">
@@ -151,35 +149,35 @@
 
                         <label for="email" class="col-md-3 control-label">E-mail</label>
                         <div class="col-md-9">
-                            <input type="text" th:field="*{email}" class="form-control" name="email" placeholder="email">
+                            <input id="email" type="text" th:field="*{email}" class="form-control" name="email" placeholder="email">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="password" class="col-md-3 control-label">Password</label>
                         <div class="col-md-9">
-                            <input type="password" th:field="*{password}" class="form-control" name="password" placeholder="password">
+                            <input id="password" type="password" th:field="*{password}" class="form-control" name="password" placeholder="password">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="firstName" class="col-md-3 control-label">Name</label>
                         <div class="col-md-9">
-                            <input type="text" th:field="*{firstName}" class="form-control" name="firstName" placeholder="name">
+                            <input id="firstName" type="text" th:field="*{firstName}" class="form-control" name="firstName" placeholder="name">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="lastName" class="col-md-3 control-label">Surname</label>
                         <div class="col-md-9">
-                            <input type="text" th:field="*{lastName}" class="form-control" name="lastName" placeholder="surname">
+                            <input id="lastName" type="text" th:field="*{lastName}" class="form-control" name="lastName" placeholder="surname">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="address" class="col-md-3 control-label">Address</label>
                         <div class="col-md-9">
-                            <input type="address" th:field="*{address}" class="form-control" name="address" placeholder="address">
+                            <input id="address" type="text" th:field="*{address}" class="form-control" name="address" placeholder="address">
                         </div>
                     </div>
 
