@@ -1,4 +1,4 @@
-package OnlineStoreApp.demo.dataBaseAccessObjects;
+package OnlineStoreApp.demo.SQL;
 
 import OnlineStoreApp.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;

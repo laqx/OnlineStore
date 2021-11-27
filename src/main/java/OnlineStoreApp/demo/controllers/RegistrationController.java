@@ -17,15 +17,14 @@ public class RegistrationController {
     @Autowired
     private UserService userService;
 
- /*   @Autowired
-    private UserRepository userRepo;*/
-
+    //account.html
     @GetMapping("/account")
     public String getAccountPage(Model model){
         model.addAttribute("userData", new User());
         return "account";
     }
 
+    //register-success.html
     @PostMapping("/account")
     public String getUserAccount(@ModelAttribute User user, Model model){
         User validateUser = userService.validateUser(user);
@@ -33,7 +32,8 @@ public class RegistrationController {
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
 
-
-        return "register_success";
+        return "register-success";
     }
+
+
 }

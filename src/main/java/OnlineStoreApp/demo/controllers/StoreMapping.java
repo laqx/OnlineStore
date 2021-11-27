@@ -33,9 +33,4 @@ public class StoreMapping {
         return "shop";
     }
 
-    //register-success.html
-    @GetMapping("/register-success")
-    public String getRegCon (final ModelMap modelMap){
-        return "register-success";
-    }
 }

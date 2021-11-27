@@ -6,9 +6,9 @@ public class Subcategory {
     private String name;
 
     public Subcategory(long id, Category category, String name){
-        this.id=id;
-        this.category=category;
-        this.name=name;
+        this.id = id;
+        this.category = category;
+        this.name = name;
     }
     public long getId(){
         return id;

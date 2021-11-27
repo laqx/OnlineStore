@@ -1,21 +1,20 @@
-package OnlineStoreApp.demo.dataBaseAccessObjects;
+package OnlineStoreApp.demo.SQL;
 
 import java.sql.*;
 
-public class AddToDatabase {
+public class SQLAddToDatabase {
     public static void main(String[] args) {
         try {
             Connection connection = DriverManager.getConnection(
 
-//                   "jdbc:mysql://localhost:3306/OnlineStore", "root", "Oxford1984");
-//            "jdbc:mysql://localhost:3306/onlinestore ", "root", "root");
-//                    "jdbc:mysql://127.0.0.1:3306/OnlineStore", "root", "Oxford1984");
+//            "jdbc:mysql://localhost:3306/OnlineStore", "root", "Oxford1984");
 //            "jdbc:mysql://localhost:3306/onlinestore ", "root", "root");
            "jdbc:mysql://localhost:1800/onlinestore", "root", "admin");
 
 //            addNewProduct(con, "roses", 3.00, 1, 55, 1);
 //            addNewSubCategory(con, "candles");
 //            fetchCategory(con);
+
         } catch (Exception err) {
             System.out.println(err);
         }
@@ -58,8 +57,8 @@ public class AddToDatabase {
 
             while(rs.next())
                 System.out.println("Category " +rs.getString(2)+" has subcategory "+rs.getString(2));
-        }catch(SQLException ex){
-
+        }catch(SQLException err){
+            System.out.println(err);
         }
     }
 }

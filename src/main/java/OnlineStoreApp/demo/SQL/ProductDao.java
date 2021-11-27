@@ -1,4 +1,4 @@
-package OnlineStoreApp.demo.dataBaseAccessObjects;
+package OnlineStoreApp.demo.SQL;
 
 import OnlineStoreApp.demo.model.Category;
 import OnlineStoreApp.demo.model.Product;
