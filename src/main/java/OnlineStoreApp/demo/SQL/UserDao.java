@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.io.PrintStream;
 import java.sql.*;
 import java.util.List;
 
@@ -41,5 +42,22 @@ public class UserDao {
         jdbcTemplate.update("INSERT INTO users (firstname, lastname,  address, email, password) VALUES (?,?,?,?,?)",
         user.getFirstName(), user.getLastName(), user.getAddress(), user.getEmail(), user.getPassword());
 
+    }
+
+    public User findByEmail (Connection connection, String email){
+        String query ="SELECT * FROM users WHERE email = ?";
+        User user = new User();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, email);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while(rs.next()) {
+                user.setEmail(rs.getString("email")) ;
+
+            }
+        } catch (SQLException var5) {
+        }
+     return user;
     }
 }

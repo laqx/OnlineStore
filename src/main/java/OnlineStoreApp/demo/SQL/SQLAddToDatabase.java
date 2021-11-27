@@ -8,8 +8,8 @@ public class SQLAddToDatabase {
             Connection connection = DriverManager.getConnection(
 
 //            "jdbc:mysql://localhost:3306/OnlineStore", "root", "Oxford1984");
-//            "jdbc:mysql://localhost:3306/onlinestore ", "root", "root");
-           "jdbc:mysql://localhost:1800/onlinestore", "root", "admin");
+            "jdbc:mysql://localhost:3306/onlinestore ", "root", "root");
+//           "jdbc:mysql://localhost:1800/onlinestore", "root", "admin");
 
 //            addNewProduct(con, "roses", 3.00, 1, 55, 1);
 //            addNewSubCategory(con, "candles");
@@ -48,11 +48,11 @@ public class SQLAddToDatabase {
         }
     }
 
-        public static void fetchCategory(Connection conn) {
+        public static void fetchCategory(Connection connection) {
         String query = "select category.id, category.name, subcategory.name from category inner join subcategory on subcategory.id = category.subcategory_id";
 
         try{
-            Statement statement = conn.createStatement();
+            Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery(query);
 
             while(rs.next())
