@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+</head>
+<body>
+<!--<div th:each="c : ${products}" style="display: flex;">-->
+<!--    <div th:text="${c.id}"></div>-->
+<!--    <div th:text="${c.title}"></div>-->
+<!--    <div th:text="${c.price}"></div>-->
+<!--    <div th:text="${c.user_id}"></div>-->
+<!--    <div th:text="${c.quantity}"></div>-->
+<!--    <div th:text="${c.subcategory_id_p}"></div>-->
+<!--    <div th:text="${c.description}"></div>-->
+<!--</div>-->
+<div>
+    <form th:action="@{/products/create}" th:object="${newProduct}" method="POST">
+        <input type="text" placeholder="Title" th:field="*{title}">
+        <input type="text" placeholder="Price" th:field="*{price}">
+        <input type="text" placeholder="User_id" th:field="*{user_id}">
+        <input type="text" placeholder="Quantity" th:field="*{quantity}">
+        <input type="text" placeholder="Subcategory_id_p" th:field="*{subcategory_id_p}">
+        <input type="text" placeholder="Description" th:field="*{description}">
+        <input type="submit" value="Add">
+    </form>
+</div>
+</body>
+</html>
