@@ -17,12 +17,6 @@ public class RegistrationController {
     @Autowired
     private UserService userService;
 
-    //account.html
-    @GetMapping("/account")
-    public String getAccountPage(Model model){
-        model.addAttribute("userData", new User());
-        return "account";
-    }
 
     //register-success.html
     @PostMapping("/account#register")

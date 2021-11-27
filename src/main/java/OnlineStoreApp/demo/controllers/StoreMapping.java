@@ -41,4 +41,11 @@ public class StoreMapping {
         return "register-success";
     }
 
+    //account.html
+    @GetMapping("/account")
+    public String getAccountPage(Model model){
+        model.addAttribute("userData", new User());
+        return "account";
+    }
+
 }
