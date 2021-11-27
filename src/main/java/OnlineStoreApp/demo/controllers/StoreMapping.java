@@ -1,7 +1,9 @@
 package OnlineStoreApp.demo.controllers;
 
 import OnlineStoreApp.demo.model.Product;
+import OnlineStoreApp.demo.model.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -31,6 +33,12 @@ public class StoreMapping {
     public String getShop(final ModelMap modelMap) {
         modelMap.addAttribute("product", new Product());
         return "shop";
+    }
+
+    //register-success.html
+    @GetMapping("/register-success")
+    public String getRegCon(Model model){
+        return "register-success";
     }
 
 }

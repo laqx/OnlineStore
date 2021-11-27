@@ -25,7 +25,7 @@ public class RegistrationController {
     }
 
     //register-success.html
-    @PostMapping("/account#register#")
+    @PostMapping("/account#register")
     public String getUserAccount(@ModelAttribute User user, Model model){
         User validateUser = userService.validateUser(user);
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
