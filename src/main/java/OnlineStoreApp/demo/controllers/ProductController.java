@@ -9,9 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/shop")
+//@RequestMapping("/shop")
 public class ProductController {
-    @GetMapping("/create")
+//    @GetMapping("/create")
+    @GetMapping("/shop")
     public String getProductCatalog(final ModelMap modelMap){
         modelMap.addAttribute("product", new Product());
 //        modelMap.addAttribute("elements", List.of("one", "two", "three"));
