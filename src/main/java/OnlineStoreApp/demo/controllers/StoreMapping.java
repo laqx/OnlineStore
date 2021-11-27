@@ -36,12 +36,6 @@ public class StoreMapping {
         return "shop";
     }
 
-    //register-success.html
-    @GetMapping("/register-success")
-    public String getRegCon(Model model){
-        return "register-success";
-    }
-
     //account.html
     @GetMapping("/account")
     public String getAccountPage(Model model){
