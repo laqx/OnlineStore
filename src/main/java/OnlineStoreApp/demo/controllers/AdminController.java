@@ -29,7 +29,7 @@ public class AdminController {
         return "admin/products"; // admin html view
     }
 
-    @PostMapping("/admin/products")
+    @PostMapping("/admin/products_store")
     public String addProduct(@ModelAttribute Product newProduct) {
         adminService.saveProduct(newProduct);
         return "redirect:/admin/products";
