@@ -37,10 +37,10 @@ public class StoreMapping {
     }
 
     //account.html
-    @GetMapping("/account")
-    public String getAccountPage(Model model){
-        model.addAttribute("userData", new User());
-        return "account";
-    }
+//    @GetMapping("/account")
+//    public String getAccountPage(Model model){
+//        model.addAttribute("userData", new User());
+//        return "account";
+//    }
 
 }
