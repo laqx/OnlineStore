@@ -6,7 +6,7 @@ public class User {
     String lastName;
     String address;
     String email;
-    String password;
+   public String password;
 //    String role;
 //  Role role;
 
