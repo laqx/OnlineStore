@@ -44,14 +44,14 @@ public class ProductDao {
         product.setPrice(new BigDecimal(resultSet.getString("price")));
         product.setUser_id(resultSet.getLong("user_id"));
         product.setQuantity(resultSet.getInt("quantity"));
-        product.setSubcategory_id(resultSet.getLong("subcategory_id_p"));
+        product.setSubcategory_id(resultSet.getLong("subcategory_id"));
         product.setDescription(resultSet.getString("description"));
 
         return product;
     }
 
     public void saveProduct(Product product){
-        jdbcTemplate.update("INSERT INTO product (title, price, users_id, quantity, subcategory_id_p, description) VALUES (?, ?, ?, ?, ?, ?)," +
-                product.getTitle(), product.getPrice(), product.getUser_id(), product.getQuantity(), product.getSubcategory_id_p(), product.getDescription());
+        jdbcTemplate.update("INSERT INTO product (title, price, users_id, quantity, subcategory_id, description) VALUES (?, ?, ?, ?, ?, ?)," +
+                product.getTitle(), product.getPrice(), product.getUser_id(), product.getQuantity(), product.getSubcategory_id(), product.getDescription());
     }
 }

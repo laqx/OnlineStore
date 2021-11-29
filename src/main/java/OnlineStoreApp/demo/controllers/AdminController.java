@@ -16,22 +16,22 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
 
-    @GetMapping("/admin/categories")
+    @GetMapping("/categories")
     public String getCategories(Model model) {
         model.addAttribute("categories", adminService.getCategories());
         model.addAttribute("category", new Category());
-        return "admin/categories";
+        return "categories";
     }
 
-    @GetMapping("/admin/products")
+    @GetMapping("/products")
     public String getProduct(Model model) {
         model.addAttribute("products", adminService.getProducts());
-        return "admin/products"; // admin html view
+        return "products-page"; // admin html view
     }
 
-    @PostMapping("/admin/products_store")
+    @PostMapping("/products/create")
     public String addProduct(@ModelAttribute Product newProduct) {
         adminService.saveProduct(newProduct);
-        return "redirect:/admin/products";
+        return "redirect:/products-page";
     }
 }
