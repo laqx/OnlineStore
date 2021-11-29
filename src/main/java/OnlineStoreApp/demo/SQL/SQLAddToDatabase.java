@@ -7,7 +7,7 @@ public class SQLAddToDatabase {
         try {
             Connection connection = DriverManager.getConnection(
 
-            "jdbc:mysql://localhost:3306/OnlineStore", "root", "Oxford1984");
+//            "jdbc:mysql://localhost:3306/OnlineStore", "root", "Oxford1984");
 //            "jdbc:mysql://localhost:3306/onlinestore ", "root", "root");
 //           "jdbc:mysql://localhost:1800/onlinestore", "root", "admin");
 
@@ -20,15 +20,16 @@ public class SQLAddToDatabase {
         }
     }
 
-    public static void addNewProduct(Connection connection, String title, Double price, int users_id, int quantity, int subcategory_id_p) {
+    public static void addNewProduct(Connection connection, String title, Double price, int users_id, int quantity, int subcategory_id_p, String description) {
 
-        String insertNewProduct = "INSERT INTO product(title, price, users_id, quantity, subcategory_id_p) VALUES(?,?,?,?,?)";
+        String insertNewProduct = "INSERT INTO product(title, price, users_id, quantity, subcategory_id_p, description) VALUES(?,?,?,?,?,?)";
         try (PreparedStatement insertQuery = connection.prepareStatement(insertNewProduct)) {
             insertQuery.setString(1, title);
             insertQuery.setDouble(2, price);
             insertQuery.setInt(3, users_id);
             insertQuery.setInt(4, quantity);
             insertQuery.setInt(5, subcategory_id_p);
+            insertQuery.setString(6, description);
 
             insertQuery.executeUpdate();
         } catch (SQLException err) {

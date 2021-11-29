@@ -42,16 +42,16 @@ public class ProductDao {
         product.setId(resultSet.getLong("id"));
         product.setTitle(resultSet.getString("title"));
         product.setPrice(new BigDecimal(resultSet.getString("price")));
-        product.setUser_id(resultSet.getLong("user_id"));
+        product.setUsers_id(resultSet.getLong("users_id"));
         product.setQuantity(resultSet.getInt("quantity"));
-        product.setSubcategory_id(resultSet.getLong("subcategory_id"));
+        product.setSubcategory_id_p(resultSet.getLong("subcategory_id_p"));
         product.setDescription(resultSet.getString("description"));
 
         return product;
     }
 
     public void saveProduct(Product product){
-        jdbcTemplate.update("INSERT INTO product (title, price, users_id, quantity, subcategory_id, description) VALUES (?, ?, ?, ?, ?, ?)," +
-                product.getTitle(), product.getPrice(), product.getUser_id(), product.getQuantity(), product.getSubcategory_id(), product.getDescription());
+        jdbcTemplate.update("INSERT INTO product (title, price, users_id, quantity, subcategory_id_p, description) VALUES (?, ?, ?, ?, ?, ?)," +
+                product.getTitle(), product.getPrice(), product.getUsers_id(), product.getQuantity(), product.getSubcategory_id_p(), product.getDescription());
     }
 }

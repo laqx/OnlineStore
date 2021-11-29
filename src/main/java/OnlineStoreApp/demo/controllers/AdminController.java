@@ -26,6 +26,7 @@ public class AdminController {
     @GetMapping("/products")
     public String getProduct(Model model) {
         model.addAttribute("products", adminService.getProducts());
+        model.addAttribute("newProduct", new Product());
         return "products-page"; // admin html view
     }
 
