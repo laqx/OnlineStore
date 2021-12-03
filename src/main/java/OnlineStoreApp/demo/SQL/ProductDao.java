@@ -38,16 +38,29 @@ public class ProductDao {
 
     public List<Product> getProducts(){
         RowMapper<Product> rowMapper = (resultSet, i) -> mapProduct(resultSet);
-        return jdbcTemplate.query("SELECT * FROM product", rowMapper);
+        return jdbcTemplate.query("SELECT p.id AS product_id, p.title, p.price, p.quantity, p.description, " +
+                "s.id AS sub_id, s.name AS sub_name, c.id AS cat_id, c.name AS cat_name " +
+                "FROM product p " +
+                "INNER JOIN subcategory s ON p.subcategory_id_p = s.id " +
+                "INNER JOIN category c ON s.category_id = c.id", rowMapper);
     }
-
+// "SELECT * FROM product"
     private Product mapProduct(ResultSet resultSet) throws SQLException {
+        Category category = new Category();
+        category.setId(resultSet.getLong("cat_id"));
+        category.setName(resultSet.getString("cat_name"));
+
+        Subcategory subcategory = new Subcategory();
+        subcategory.setCategory(category);
+        subcategory.setId(resultSet.getLong("sub_id"));
+        subcategory.setName(resultSet.getString("sub_name"));
+
         Product product = new Product();
-        product.setId(resultSet.getLong("id"));
+        product.setId(resultSet.getLong("product_id"));
         product.setTitle(resultSet.getString("title"));
         product.setPrice(new BigDecimal(resultSet.getString("price")));
         product.setQuantity(resultSet.getInt("quantity"));
-        product.setSubcategory_id_p(resultSet.getLong("subcategory_id_p"));
+//        product.setSubcategory_id_p(resultSet.getLong("subcategory_id_p"));
         product.setDescription(resultSet.getString("description"));
 
         return product;
@@ -59,21 +72,24 @@ public class ProductDao {
     }
 
     public void saveSubcategory(Subcategory subcategory) {
-        jdbcTemplate.update("INSERT INTO subcategory (name, category_id) VALUES (?, ?)", subcategory.getName(), subcategory.getCategory());
+        jdbcTemplate.update("INSERT INTO subcategory (name, category_id) VALUES (?, ?)", subcategory.getName(), subcategory.getCategory().getId());
     }
 
     public List<Subcategory> getSubcategory(){
         RowMapper<Subcategory> rowMapper = (rs, rowNumber) -> mapSubcategory(rs);
-        return jdbcTemplate.query("SELECT * FROM subcategory", rowMapper);
+        return jdbcTemplate.query("SELECT s.id AS s_id, s.name AS s_name, c.id AS c_id, c.name AS c_name FROM subcategory s " +
+                "INNER JOIN category c ON s.category_id = c.id", rowMapper);
     }
 
     private Subcategory mapSubcategory(ResultSet rs) throws SQLException {
         Category category = new Category();
-        category.setId(rs.getLong("category_id"));
+        category.setId(rs.getLong("c_id"));
+        category.setName(rs.getString("c_name"));
 
         Subcategory subcategory = new Subcategory();
         subcategory.setCategory(category);
-        subcategory.setId(rs.getLong("id"));
+        subcategory.setId(rs.getLong("s_id"));
+        subcategory.setName(rs.getString("s_name"));
 
         return subcategory;
     }
