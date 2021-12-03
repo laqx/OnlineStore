@@ -32,6 +32,7 @@ public class AdminController {
 //    @RequestMapping(value = "/products", method = RequestMethod.GET)
     public String getProduct(Model model) {
         model.addAttribute("product", adminService.getProducts());
+        model.addAttribute("subcategory", adminService.getSubcategory());
         model.addAttribute("newProduct", new Product());
         return "products-page"; // admin html view
     }

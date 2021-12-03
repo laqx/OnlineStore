@@ -19,46 +19,46 @@ public class SQLAddToDatabase {
             System.out.println(err);
         }
     }
-
-    public static void addNewProduct(Connection connection, String title, Double price, int quantity, int subcategory_id_p, String description) {
-
-        String insertNewProduct = "INSERT INTO product(title, price, quantity, subcategory_id_p, description) VALUES(?,?,?,?,?)";
-        try (PreparedStatement insertQuery = connection.prepareStatement(insertNewProduct)) {
-            insertQuery.setString(1, title);
-            insertQuery.setDouble(2, price);
-            insertQuery.setInt(3, quantity);
-            insertQuery.setInt(4, subcategory_id_p);
-            insertQuery.setString(5, description);
-
-            insertQuery.executeUpdate();
-        } catch (SQLException err) {
-            err.printStackTrace();
-        }
-    }
-
-    public static void addNewSubCategory(Connection connection, String name) {
-
-        String insertNewSubCategory = "INSERT INTO subcategory(name) VALUES(?)";
-        try (PreparedStatement insertQuery = connection.prepareStatement(insertNewSubCategory)) {
-            insertQuery.setString(1, name);
-
-            insertQuery.executeUpdate();
-        } catch (SQLException err) {
-            err.printStackTrace();
-        }
-    }
-
-        public static void fetchCategory(Connection connection) {
-        String query = "select category.id, category.name, subcategory.name from category inner join subcategory on subcategory.id = category.subcategory_id";
-
-        try{
-            Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery(query);
-
-            while(rs.next())
-                System.out.println("Category " +rs.getString(2)+" has subcategory "+rs.getString(2));
-        }catch(SQLException err){
-            System.out.println(err);
-        }
-    }
+//
+//    public static void addNewProduct(Connection connection, String title, Double price, int quantity, int subcategory_id_p, String description) {
+//
+//        String insertNewProduct = "INSERT INTO product(title, price, quantity, subcategory_id_p, description) VALUES(?,?,?,?,?)";
+//        try (PreparedStatement insertQuery = connection.prepareStatement(insertNewProduct)) {
+//            insertQuery.setString(1, title);
+//            insertQuery.setDouble(2, price);
+//            insertQuery.setInt(3, quantity);
+//            insertQuery.setInt(4, subcategory_id_p);
+//            insertQuery.setString(5, description);
+//
+//            insertQuery.executeUpdate();
+//        } catch (SQLException err) {
+//            err.printStackTrace();
+//        }
+//    }
+//
+//    public static void addNewSubCategory(Connection connection, String name) {
+//
+//        String insertNewSubCategory = "INSERT INTO subcategory(name) VALUES(?)";
+//        try (PreparedStatement insertQuery = connection.prepareStatement(insertNewSubCategory)) {
+//            insertQuery.setString(1, name);
+//
+//            insertQuery.executeUpdate();
+//        } catch (SQLException err) {
+//            err.printStackTrace();
+//        }
+//    }
+//
+//        public static void fetchCategory(Connection connection) {
+//        String query = "select category.id, category.name, subcategory.name from category inner join subcategory on subcategory.id = category.subcategory_id";
+//
+//        try{
+//            Statement statement = connection.createStatement();
+//            ResultSet rs = statement.executeQuery(query);
+//
+//            while(rs.next())
+//                System.out.println("Category " +rs.getString(2)+" has subcategory "+rs.getString(2));
+//        }catch(SQLException err){
+//            System.out.println(err);
+//        }
+//    }
 }

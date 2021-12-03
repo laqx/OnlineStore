@@ -56,6 +56,7 @@ public class ProductDao {
         subcategory.setName(resultSet.getString("sub_name"));
 
         Product product = new Product();
+        product.setSubcategory(subcategory);
         product.setId(resultSet.getLong("product_id"));
         product.setTitle(resultSet.getString("title"));
         product.setPrice(new BigDecimal(resultSet.getString("price")));
@@ -67,8 +68,8 @@ public class ProductDao {
     }
 
     public void saveProduct(Product product){
-        jdbcTemplate.update("INSERT INTO product (title, price, quantity, subcategory_id_p, description) " +
-                "VALUES (?, ?, ?, ?, ?)", product.getTitle(), product.getPrice(), product.getQuantity(), product.getSubcategory_id_p(), product.getDescription());
+        jdbcTemplate.update("INSERT INTO product (title, subcategory_id_p, price, quantity, description) " +
+                "VALUES (?, ?, ?, ?, ?)", product.getTitle(), product.getSubcategory().getId(), product.getPrice(), product.getQuantity(), product.getDescription());
     }
 
     public void saveSubcategory(Subcategory subcategory) {

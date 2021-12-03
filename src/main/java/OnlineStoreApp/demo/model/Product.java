@@ -8,25 +8,23 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 
 public class Product {
-    long id;
-    String title;
-    BigDecimal price;
-    int quantity;
-    long subcategory_id_p;
-    String description;
-      /*  int discount;
-    boolean inStock;*/
+    private long id;
+    private Subcategory subcategory;
+    private String title;
+    private BigDecimal price;
+    private int quantity;
+    private String description;
 
-    public Product (long id, String title, BigDecimal price, //int discount, boolean inStock,//
-                    int quantity, long subcategory_id_p, String description){
+
+    public Product (long id, Subcategory subcategory, String title, BigDecimal price, //int discount, boolean inStock,//
+                    int quantity, String description){
         this.id=id;
+        this.subcategory=subcategory;
         this.title = title;
         this.price = price;
         this.quantity = quantity;
-        this.subcategory_id_p=subcategory_id_p;
         this.description=description;
-      /*  this.discount = discount;
-        this.inStock = inStock;*/
+
     }
 
     public long getId() {
@@ -35,6 +33,14 @@ public class Product {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public Subcategory getSubcategory() {
+        return subcategory;
+    }
+
+    public void setSubcategory(Subcategory subcategory) {
+        this.subcategory = subcategory;
     }
 
     public String getTitle() {
@@ -59,14 +65,6 @@ public class Product {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
-
-    public long getSubcategory_id_p() {
-        return subcategory_id_p;
-    }
-
-    public void setSubcategory_id_p(long subcategory_id_p) {
-        this.subcategory_id_p = subcategory_id_p;
     }
 
     public String getDescription() {
