@@ -1,14 +1,19 @@
 package OnlineStoreApp.demo.model;
 
+import javax.persistence.Entity;
+import javax.validation.constraints.NotBlank;
+
+
 public class User {
+
+    String role = "USER";
     long id;
     String firstName;
     String lastName;
     String address;
     String email;
     String password;
-//    String role;
-//  Role role;
+
 
 
     public User(long id, String firstName, String lastName, String address, String email, String password){
@@ -72,11 +77,11 @@ public class User {
         this.password = password;
     }
 
-    /*public String getRole() {
+    public String getRole() {
         return role;
     }
 
     public void setRole(String role) {
         this.role = role;
-    }*/
+    }
 }

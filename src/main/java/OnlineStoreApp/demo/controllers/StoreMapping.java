@@ -36,11 +36,23 @@ public class StoreMapping {
         return "shop";
     }
 
-    //account.html
-//    @GetMapping("/account")
-//    public String getAccountPage(Model model){
-//        model.addAttribute("userData", new User());
-//        return "account";
-//    }
+    //user-profile.html
+    @GetMapping("/user-profile")
+    public String getUserProfile(final ModelMap modelMap){
+        return "user-profile";
+    }
+    //shopAdmin.html
+    @GetMapping("/shopAdmin")
+    public String getShopAdmin(final ModelMap modelMap){
+        return "shopAdmin";
+    }
+
+    //product-page.html
+  /*  @GetMapping("/products-page")
+    public String getProductPage(final ModelMap modelMap) {
+//        modelMap.addAttribute("productFromProductPage", new Product());
+        return "products-page";
+    }*/
+
 
 }

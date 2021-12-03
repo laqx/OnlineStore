@@ -11,34 +11,34 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-public class RegistrationController {
+public class AdminRegistrationController {
 
     @Autowired
     private UserService userService;
 
 
     //register-success.html
-    @PostMapping("/account")
-    public String getUserAccount(@ModelAttribute User user, Model model){
-//        user.setRole(Role.ADMIN);
+    @PostMapping("/accountAdmin")
+    public String getAdminAccount(@ModelAttribute User user, Model model){
+        user.setRole("ADMIN");
         User validateUser = userService.validateUser(user);
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
 
-        return "register-success";
+        return "register-success-admin";
     }
 
-    @GetMapping("/register-success")
+    @GetMapping("/register-success-admin")
     public String getRegCon (){
-        return "register-success";
+        return "register-success-admin";
     }
     //account.html
-    @GetMapping("/account")
-    public String getAccountPage(Model model){
-        model.addAttribute("userData", new User());
-        return "account";
+    @GetMapping("/accountAdmin")
+    public String getAdminAccountPage(Model model){
+        model.addAttribute("adminData", new User());
+        return "accountAdmin";
     }
 
 

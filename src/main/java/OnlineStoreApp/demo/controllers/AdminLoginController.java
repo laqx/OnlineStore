@@ -15,17 +15,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.sql.Connection;
 @Controller
-public class LoginController {
+public class AdminLoginController {
     private UserService userService;
 
     //account.html
-    @GetMapping("/login")
-    public String getLoginAccountPage(Model model){
-        model.addAttribute("loginForm", new LoggedUser());
-        return "login";
+    @GetMapping("/loginAdmin")
+    public String getAdminLoginAccountPage(Model model){
+        model.addAttribute("adminLoginForm", new LoggedUser());
+        return "loginAdmin";
     }
-    @PostMapping("/login")
-    public String getLoggedUserAccount(@ModelAttribute LoggedUser loggedUser, Model model){
+    @PostMapping("/loginAdmin")
+    public String getLoggedAdminAccount(@ModelAttribute LoggedUser loggedUser, Model model){
         userService.validateLoggedUser();
 
 

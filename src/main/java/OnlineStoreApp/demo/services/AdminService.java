@@ -4,8 +4,10 @@ import OnlineStoreApp.demo.SQL.ProductDao;
 import OnlineStoreApp.demo.model.Category;
 import OnlineStoreApp.demo.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 
+import java.sql.Connection;
 import java.util.List;
 
 @Service
@@ -25,6 +27,10 @@ public List<Product> getProducts(){
 public void saveProduct(Product product){
         productDao.saveProduct(product);
 }
+/*
+    public void findProductById(Long){
+       productDao.getProduct();
+    }*/
 }
 
 

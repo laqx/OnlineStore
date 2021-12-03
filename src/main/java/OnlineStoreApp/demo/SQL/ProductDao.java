@@ -2,12 +2,15 @@ package OnlineStoreApp.demo.SQL;
 
 import OnlineStoreApp.demo.model.Category;
 import OnlineStoreApp.demo.model.Product;
+import OnlineStoreApp.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -54,4 +57,27 @@ public class ProductDao {
         jdbcTemplate.update("INSERT INTO product (title, price, users_id, quantity, subcategory_id_p, description) VALUES (?, ?, ?, ?, ?, ?)," +
                 product.getTitle(), product.getPrice(), product.getUsers_id(), product.getQuantity(), product.getSubcategory_id_p(), product.getDescription());
     }
+
+ /*   public Product getProductById (Connection connection, String id){
+        String query ="SELECT * FROM products WHERE id = ?";
+        Product product = new Product();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while(rs.next()) {
+                product.getId(rs.getString("id"));
+
+            }
+        } catch (SQLException var5) {
+        }
+        return product;
+    }*/
+
+   /* public Product getProduct(Product product){
+        jdbcTemplate.update("SELECT * FROM products WHERE id = ?");
+        return product;
+    }
+*/
 }
