@@ -1,15 +1,15 @@
 package OnlineStoreApp.demo.model;
 
-public class Category {
+import javax.persistence.*;
+
+@Entity
+@Table(name="roles")
+public class Roles {
+    @Id
+    @Column(name="role_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-
-    public Category(long id, String name){
-        this.id=id;
-        this.name=name;
-    }
-
-    public Category(){}
 
     public long getId() {
         return id;

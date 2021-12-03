@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+    <title>Subcategories</title>
+</head>
+<body>
+<div th:each="cat : ${categories}" style="margin-left: 10px;">
+  <a th:href="'/_admin/subcategories/' + ${cat.id}" th:text="${cat.name}"></a>
+</div>
+<div>
+  <form th:action="@{/subcategories/create}" th:object="${newSubcategory}" method="POST">
+    <input type="text" placeholder="Subcategory Name" th:field="*{name}">
+    <select th:field="*{category.id}">
+      <th:block th:each="cat : ${categories}">
+        <option th:value="${cat.id}" th:text="${cat.name}"></option>
+      </th:block>
+    </select>
+    <input type="submit" value="Add">
+  </form>
+</div>
+</body>
+</html>

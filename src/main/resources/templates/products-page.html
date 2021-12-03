@@ -18,7 +18,6 @@
     <form th:action="@{/products/create}" th:object="${newProduct}" method="POST">
         <input type="text" placeholder="Title" th:field="*{title}">
         <input type="text" placeholder="Price" th:field="*{price}">
-        <input type="text" placeholder="Users_id" th:field="*{users_id}">
         <input type="text" placeholder="Quantity" th:field="*{quantity}">
         <input type="text" placeholder="Subcategory_id_p" th:field="*{subcategory_id_p}">
         <input type="text" placeholder="Description" th:field="*{description}">

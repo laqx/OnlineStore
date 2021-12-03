@@ -11,19 +11,17 @@ public class Product {
     long id;
     String title;
     BigDecimal price;
-    long users_id;
     int quantity;
     long subcategory_id_p;
     String description;
       /*  int discount;
     boolean inStock;*/
 
-    public Product (long id, String title, BigDecimal price, long users_id, //int discount, boolean inStock,//
+    public Product (long id, String title, BigDecimal price, //int discount, boolean inStock,//
                     int quantity, long subcategory_id_p, String description){
         this.id=id;
         this.title = title;
         this.price = price;
-        this.users_id=users_id;
         this.quantity = quantity;
         this.subcategory_id_p=subcategory_id_p;
         this.description=description;
@@ -53,14 +51,6 @@ public class Product {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
-    }
-
-    public long getUsers_id() {
-        return users_id;
-    }
-
-    public void setUsers_id(long users_id) {
-        this.users_id = users_id;
     }
 
     public int getQuantity() {

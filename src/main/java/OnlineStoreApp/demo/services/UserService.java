@@ -37,4 +37,11 @@ public class UserService {
             return user;
 
     }
+    public UserDetails loadUserByName (Connection connection, String name) throws UsernameNotFoundException{
+        User user = (User) userDao.findUserByName(name);
+        if (user ==null){
+            throw new UsernameNotFoundException("User not found");
+        }
+        return new CustomUserDetails(user);
+    }
 }
