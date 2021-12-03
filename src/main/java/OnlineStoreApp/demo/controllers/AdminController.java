@@ -28,8 +28,8 @@ public class AdminController {
         return "redirect:/categories";
     }
 
- //   @GetMapping("/products")
-    @RequestMapping(value = "/products", method = RequestMethod.GET)
+    @GetMapping("/products")
+//    @RequestMapping(value = "/products", method = RequestMethod.GET)
     public String getProduct(Model model) {
         model.addAttribute("product", adminService.getProducts());
         model.addAttribute("newProduct", new Product());
@@ -44,7 +44,7 @@ public class AdminController {
 
     @GetMapping("/subcategories")
     public String getSubcategory(Model model){
-        model.addAttribute("category", adminService.getSubcategory());
+        model.addAttribute("category", adminService.getCategories());
         model.addAttribute("subcategory", adminService.getSubcategory());
         model.addAttribute("newSubcategory", new Subcategory());
 
