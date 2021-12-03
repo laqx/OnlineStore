@@ -4,9 +4,7 @@ import OnlineStoreApp.demo.model.CustomUserDetails;
 import OnlineStoreApp.demo.model.LoggedUser;
 import OnlineStoreApp.demo.model.User;
 import OnlineStoreApp.demo.services.UserService;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

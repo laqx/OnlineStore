@@ -5,8 +5,7 @@ import OnlineStoreApp.demo.model.CustomUserDetails;
 import OnlineStoreApp.demo.model.LoggedUser;
 import OnlineStoreApp.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
 import org.springframework.stereotype.Service;
 
 import java.sql.Connection;
@@ -42,21 +41,21 @@ public class UserService {
     public void validateLoggedUser (LoggedUser loggedUser){
 
     }
-    public UserDetails loadUserByEmail (Connection connection, String email) throws UsernameNotFoundException{
+    public User loadUserByEmail (Connection connection, String email) throws Exception{
         User user = userDao.findByEmail(connection, email);
         if (user ==null){
-            throw new UsernameNotFoundException("User not found");
+            throw new Exception("User not found");
         }
-        return new CustomUserDetails(user);
+        return user;
     }
 
 
-    public UserDetails checkUserPasswordByEmail (Connection connection, String email, String password) throws Exception {
+    public User checkUserPasswordByEmail (Connection connection, String email, String password) throws Exception {
         User user = userDao.findByEmail(connection,email);
         if (password != userDao.findPasswordByEmail(connection, password)){
             throw new Exception("password does not match");
         }
-        return new CustomUserDetails(user);
+        return user;
     }
 
     public boolean validateLoggedUser(){
