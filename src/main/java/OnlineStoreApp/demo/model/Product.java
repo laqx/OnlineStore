@@ -8,35 +8,39 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 
 public class Product {
-    long id;
-    String title;
-    BigDecimal price;
-    long users_id;
-    int quantity;
-    long subcategory_id_p;
-    String description;
-      /*  int discount;
-    boolean inStock;*/
+    private long id;
+    private Subcategory subcategory;
+    private String title;
+    private BigDecimal price;
+    private int quantity;
+    private String description;
+    private long subcategory_id_p;
 
-    public Product (long id, String title, BigDecimal price, long users_id, //int discount, boolean inStock,//
-                    int quantity, long subcategory_id_p, String description){
+    public Product (long id, Subcategory subcategory, String title, BigDecimal price, //int discount, boolean inStock,//
+                    int quantity, String description, long subcategory_id_p){
         this.id=id;
+        this.subcategory=subcategory;
         this.title = title;
         this.price = price;
-        this.users_id=users_id;
         this.quantity = quantity;
-        this.subcategory_id_p=subcategory_id_p;
         this.description=description;
-      /*  this.discount = discount;
-        this.inStock = inStock;*/
+        this.subcategory_id_p=subcategory_id_p;
     }
 
-    public long getId(String id) {
-        return this.id;
+    public long getId() {
+        return id;
     }
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public Subcategory getSubcategory() {
+        return subcategory;
+    }
+
+    public void setSubcategory(Subcategory subcategory) {
+        this.subcategory = subcategory;
     }
 
     public String getTitle() {
@@ -55,20 +59,20 @@ public class Product {
         this.price = price;
     }
 
-    public long getUsers_id() {
-        return users_id;
-    }
-
-    public void setUsers_id(long users_id) {
-        this.users_id = users_id;
-    }
-
     public int getQuantity() {
         return quantity;
     }
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public long getSubcategory_id_p() {
@@ -79,14 +83,7 @@ public class Product {
         this.subcategory_id_p = subcategory_id_p;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-   /* public void getOrderSum(double price, int discount, int orderQuantity){
+    /* public void getOrderSum(double price, int discount, int orderQuantity){
         double sum = 0;
         if (quantity>=orderQuantity){
             sum =orderQuantity*(1-0.01*discount)*price;
@@ -96,5 +93,4 @@ public class Product {
         }
     }*/
 }
-
 

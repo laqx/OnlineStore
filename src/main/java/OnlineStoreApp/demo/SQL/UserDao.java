@@ -44,38 +44,44 @@ public class UserDao {
 
     }
 
-    public User findByEmail (Connection connection, String email){
-        String query ="SELECT * FROM users WHERE email = ?";
-        User user = new User();
+    public User findByEmail ( String email){
+
+        User userSQL = new User();
         try {
+            String query ="SELECT * FROM users WHERE email = ?";
+            Connection connection = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/onlinestore ", "root", "root");
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, email);
             ResultSet rs = preparedStatement.executeQuery();
 
             while(rs.next()) {
-                user.setEmail(rs.getString("email")) ;
+                userSQL.setEmail(rs.getString("email")) ;
 
             }
         } catch (SQLException var5) {
         }
-     return user;
+     return userSQL;
     }
 
-    public User findByPassword (Connection connection, String password){
-        String query ="SELECT * FROM users WHERE password = ?";
-        User user = new User();
+    public User findByPassword (String password){
+        User userSQL = new User();
+
         try {
+            String query ="SELECT * FROM users WHERE password = ?";
+            Connection connection = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/onlinestore ", "root", "root");
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, password);
             ResultSet rs = preparedStatement.executeQuery();
 
             while(rs.next()) {
-                user.setPassword(rs.getString("password")); ;
+                userSQL.setPassword(rs.getString("password")); ;
 
             }
         } catch (SQLException var5) {
         }
-        return user;
+        return userSQL;
     }
 
    /* public String findPasswordByEmail (Connection connection, String password){

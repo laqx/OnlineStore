@@ -1,14 +1,13 @@
 package OnlineStoreApp.demo.controllers;
 
-import OnlineStoreApp.demo.SQL.ProductDao;
 import OnlineStoreApp.demo.model.Category;
 import OnlineStoreApp.demo.model.Product;
+import OnlineStoreApp.demo.model.Subcategory;
 import OnlineStoreApp.demo.services.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class AdminController {
@@ -18,14 +17,22 @@ public class AdminController {
 
     @GetMapping("/categories")
     public String getCategories(Model model) {
-        model.addAttribute("categories", adminService.getCategories());
-        model.addAttribute("category", new Category());
-        return "categories";
+        model.addAttribute("category", adminService.getCategories());
+        model.addAttribute("newCategory", new Category());
+        return "categories-page";
+    }
+
+    @PostMapping("/categories/add")
+    public String addCategory(@ModelAttribute Category category){
+        adminService.saveCategory(category);
+        return "redirect:/categories";
     }
 
     @GetMapping("/products")
+//    @RequestMapping(value = "/products", method = RequestMethod.GET)
     public String getProduct(Model model) {
-        model.addAttribute("products", adminService.getProducts());
+        model.addAttribute("product", adminService.getProducts());
+        model.addAttribute("subcategory", adminService.getSubcategory());
         model.addAttribute("newProduct", new Product());
         return "products-page"; // admin html view
     }
@@ -33,15 +40,22 @@ public class AdminController {
     @PostMapping("/products/create")
     public String addProduct(@ModelAttribute Product newProduct) {
         adminService.saveProduct(newProduct);
-        return "redirect:/products-page";
+        return "redirect:/products";
     }
 
-    /*@RequestMapping(method = RequestMethod.GET, path = "/edit/{id}")
-    public ModelAndView showEditProductForm(@PathVariable(name="id") long id){
-        ModelAndView mav = new ModelAndView("edit-product");
-        ProductDao product = adminService.(id);
+    @GetMapping("/subcategories")
+    public String getSubcategory(Model model){
+        model.addAttribute("category", adminService.getCategories());
+        model.addAttribute("subcategory", adminService.getSubcategory());
+        model.addAttribute("newSubcategory", new Subcategory());
 
-        return mav;
-    }*/
+        return "subcategories-page";
+    }
 
+    @PostMapping("/subcategories/create")
+    public String addSubcategory(@ModelAttribute Subcategory subcategory){
+        adminService.saveSubcategory(subcategory);
+
+        return "redirect:/subcategories";
+    }
 }

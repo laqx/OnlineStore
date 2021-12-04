@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -46,13 +47,6 @@ public class StoreMapping {
     public String getShopAdmin(final ModelMap modelMap){
         return "shopAdmin";
     }
-
-    //product-page.html
-  /*  @GetMapping("/products-page")
-    public String getProductPage(final ModelMap modelMap) {
-//        modelMap.addAttribute("productFromProductPage", new Product());
-        return "products-page";
-    }*/
 
 
 }

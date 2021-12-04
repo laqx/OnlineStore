@@ -37,24 +37,29 @@ public class UserService {
             return user;
 
     }
-
-    public void validateLoggedUser (LoggedUser loggedUser){
-
+ public User loadUserByEmail (String email){
+        User userSQL = userDao.findByEmail(email);
+        return userSQL;
     }
-    public User loadUserByEmail (Connection connection, String email) throws Exception{
-        User userSQL = userDao.findByEmail(connection, email);
+    public User loadUserByPassword (String password){
+        User userSQL = userDao.findByPassword(password);
+        return userSQL;
+    }
+   /* public User loadUserByEmail (String email) throws Exception{
+        User userSQL = userDao.findByEmail(email);
         if (userSQL ==null){
             throw new Exception("email not found");
         }
         return userSQL;
     }
-    public User loadUserByPassword (Connection connection, String password) throws Exception{
-        User userSQL = userDao.findByPassword(connection, password);
+    public User loadUserByPassword (String password) throws Exception{
+
+        User userSQL = userDao.findByPassword(password);
         if (userSQL ==null){
             throw new Exception("password not found");
         }
         return userSQL;
-    }
+    }*/
 
 
    /* public User checkUserPasswordByEmail (Connection connection,  String password) throws Exception {
@@ -65,10 +70,10 @@ public class UserService {
         return userSQL;
     }*/
 
-    public boolean validateLoggedUser(){
-/*        if (loadUserByEmail())*/
+    /*public boolean validateLoggedUser(Connection connection, String email, String password){
+        if (loadUserByEmail(userDao.findByEmail(connection, email) ==loadUserByPassword(userDao.findByPassword(connection, password)))
         
      return true;
-    }
+    }*/
 
 }

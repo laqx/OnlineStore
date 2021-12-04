@@ -24,7 +24,7 @@ public class AdminLoginController {
     }
     @PostMapping("/loginAdmin")
     public String getLoggedAdminAccount(@ModelAttribute LoggedUser loggedUser, Model model){
-        userService.validateLoggedUser();
+   /*     userService.validateLoggedUser();*/
 
 
         return "user-profile";
