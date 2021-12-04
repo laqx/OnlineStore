@@ -93,5 +93,9 @@ public class Product {
             System.out.println("Sorry, required quantity is not in stock");
         }
     }*/
+    public void reduceQuantityBy(int quantityToReduceBy){ // THIS SHOULD BE IN LINEITEM
+        this.quantity-=quantityToReduceBy;
+    }
+
 }
 
