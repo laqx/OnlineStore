@@ -2,6 +2,8 @@ package OnlineStoreApp.demo.SQL;
 
 import OnlineStoreApp.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -37,40 +39,23 @@ public class UserDao {
         return user;
     }
 
-    public void saveUser(User user){
+    public void saveUser(User user) {
 
         jdbcTemplate.update("INSERT INTO users (firstname, lastname,  address, email, password) VALUES (?,?,?,?,?)",
-        user.getFirstName(), user.getLastName(), user.getAddress(), user.getEmail(), user.getPassword());
+                user.getFirstName(), user.getLastName(), user.getAddress(), user.getEmail(), user.getPassword());
 
     }
 
-    public User findByEmail (Connection connection, String email){
-        String query ="SELECT * FROM users WHERE email = ?";
+    public User findByEmail(Connection connection, String email) {
+        String query = "SELECT * FROM users WHERE email = ?";
         User user = new User();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, email);
             ResultSet rs = preparedStatement.executeQuery();
 
-            while(rs.next()) {
-                user.setEmail(rs.getString("email")) ;
-
-            }
-        } catch (SQLException var5) {
-        }
-     return user;
-    }
-
-    public User findByPassword (Connection connection, String password){
-        String query ="SELECT * FROM users WHERE password = ?";
-        User user = new User();
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, password);
-            ResultSet rs = preparedStatement.executeQuery();
-
-            while(rs.next()) {
-                user.setPassword(rs.getString("password")); ;
+            while (rs.next()) {
+                user.setEmail(rs.getString("email"));
 
             }
         } catch (SQLException var5) {
@@ -78,7 +63,16 @@ public class UserDao {
         return user;
     }
 
-   /* public String findPasswordByEmail (Connection connection, String password){
+    //    @Query("SELECT FROM users WHERE u.name = :name")
+//    public User getUserByName(@Param("name") String name) {
+//        User user = new User();
+//        return user;
+//    }
+    public List<User> findUserByName(String name) {
+        RowMapper<User> rowMapper = (rs, rowNumber) -> mapUser(rs);
+        return jdbcTemplate.query("SELECT * FROM users WHERE name = ?", rowMapper, name);
+    }
+    public String findPasswordByEmail (Connection connection, String password){
         String query ="SELECT password FROM users WHERE email = ?";
         User user = new User();
         try {
@@ -93,5 +87,5 @@ public class UserDao {
         } catch (SQLException var5) {
         }
         return password;
-    }*/
+    }
 }
