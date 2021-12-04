@@ -14,17 +14,18 @@ public class Product {
     private BigDecimal price;
     private int quantity;
     private String description;
+    private long subcategory_id_p;
 
 
     public Product (long id, Subcategory subcategory, String title, BigDecimal price, //int discount, boolean inStock,//
-                    int quantity, String description){
+                    int quantity, String description, long subcategory_id_p){
         this.id=id;
         this.subcategory=subcategory;
         this.title = title;
         this.price = price;
         this.quantity = quantity;
         this.description=description;
-
+        this.subcategory_id_p=subcategory_id_p;
     }
 
     public long getId() {
@@ -74,7 +75,16 @@ public class Product {
     public void setDescription(String description) {
         this.description = description;
     }
-   /* public void getOrderSum(double price, int discount, int orderQuantity){
+
+    public long getSubcategory_id_p() {
+        return subcategory_id_p;
+    }
+
+    public void setSubcategory_id_p(long subcategory_id_p) {
+        this.subcategory_id_p = subcategory_id_p;
+    }
+
+    /* public void getOrderSum(double price, int discount, int orderQuantity){
         double sum = 0;
         if (quantity>=orderQuantity){
             sum =orderQuantity*(1-0.01*discount)*price;
