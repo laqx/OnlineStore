@@ -25,6 +25,7 @@ public class LoginController {
     @PostMapping("/login")
     public String getLoggedUserAccount(@ModelAttribute LoggedUser loggedUser, Model model){
         userService.validateLoggedUser();
+      /*  if (loggedUser== userService.loadUserByEmail()*/
 
 
         return "user-profile";

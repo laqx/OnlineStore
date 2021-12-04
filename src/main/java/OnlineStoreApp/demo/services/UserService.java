@@ -42,23 +42,31 @@ public class UserService {
 
     }
     public User loadUserByEmail (Connection connection, String email) throws Exception{
-        User user = userDao.findByEmail(connection, email);
-        if (user ==null){
-            throw new Exception("User not found");
+        User userSQL = userDao.findByEmail(connection, email);
+        if (userSQL ==null){
+            throw new Exception("email not found");
         }
-        return user;
+        return userSQL;
+    }
+    public User loadUserByPassword (Connection connection, String password) throws Exception{
+        User userSQL = userDao.findByPassword(connection, password);
+        if (userSQL ==null){
+            throw new Exception("password not found");
+        }
+        return userSQL;
     }
 
 
-    public User checkUserPasswordByEmail (Connection connection, String email, String password) throws Exception {
-        User user = userDao.findByEmail(connection,email);
+   /* public User checkUserPasswordByEmail (Connection connection,  String password) throws Exception {
+        User userSQL = userDao.findByEmail(connection,password);
         if (password != userDao.findPasswordByEmail(connection, password)){
             throw new Exception("password does not match");
         }
-        return user;
-    }
+        return userSQL;
+    }*/
 
     public boolean validateLoggedUser(){
+/*        if (loadUserByEmail())*/
         
      return true;
     }

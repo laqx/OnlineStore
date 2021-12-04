@@ -60,7 +60,25 @@ public class UserDao {
         }
      return user;
     }
-    public String findPasswordByEmail (Connection connection, String password){
+
+    public User findByPassword (Connection connection, String password){
+        String query ="SELECT * FROM users WHERE password = ?";
+        User user = new User();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, password);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while(rs.next()) {
+                user.setPassword(rs.getString("password")); ;
+
+            }
+        } catch (SQLException var5) {
+        }
+        return user;
+    }
+
+   /* public String findPasswordByEmail (Connection connection, String password){
         String query ="SELECT password FROM users WHERE email = ?";
         User user = new User();
         try {
@@ -75,5 +93,5 @@ public class UserDao {
         } catch (SQLException var5) {
         }
         return password;
-    }
+    }*/
 }
