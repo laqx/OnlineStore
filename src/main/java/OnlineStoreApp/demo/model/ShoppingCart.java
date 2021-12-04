@@ -37,7 +37,7 @@ public class ShoppingCart {
             this.productsInCart.remove(productToRemove);
         }
 
-/*        public List<Product> listProductsInCart(){
+        /*public List<Product> listProductsInCart(){
             return Collections.unmodifiableList(this.productsInCart);
 
         }*/

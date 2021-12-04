@@ -96,6 +96,9 @@ public class Product {
     public void reduceQuantityBy(int quantityToReduceBy){ // THIS SHOULD BE IN LINEITEM
         this.quantity-=quantityToReduceBy;
     }
+    /*public BigDecimal totalPrice(){
+
+    }*/
 
 }
 
