@@ -69,7 +69,7 @@ public class ProductDao {
 
     public void saveProduct(Product product){
         jdbcTemplate.update("INSERT INTO product (title, subcategory_id_p, price, quantity, description) " +
-                "VALUES (?, ?, ?, ?, ?)", product.getTitle(), product.getSubcategory().getId(), product.getPrice(), product.getQuantity(), product.getDescription());
+                "VALUES (?, ?, ?, ?, ?)", product.getTitle(), product.getSubcategory_id_p(), product.getPrice(), product.getQuantity(), product.getDescription());
     }
 
     public void saveSubcategory(Subcategory subcategory) {
