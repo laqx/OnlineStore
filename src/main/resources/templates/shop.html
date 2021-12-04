@@ -75,9 +75,10 @@
 <div class="container mt-5 mb-5">
 
     <div class="row">
+
         <div class="col-md-3">
             <div class="ibox">
-                <div class="ibox-content product-box">
+                <div th:each="Product : ${products}" class="ibox-content product-box" >
                     <div class="product-imitation">
                         [ INFO ]
                     </div>
@@ -86,7 +87,7 @@
                         $10
                     </span>
                         <small class="text-muted">Category</small>
-                        <a href="#" class="product-name"> Product</a>
+                        <a href="#" class="product-name" th:text="${product.title}"> Product</a>
 
                         <div class="small m-t-xs">
                             Many desktop publishing packages and web page editors now.
@@ -99,6 +100,8 @@
                 </div>
             </div>
         </div>
+
+
         <div class="col-md-3">
             <div class="ibox">
                 <div class="ibox-content product-box">
