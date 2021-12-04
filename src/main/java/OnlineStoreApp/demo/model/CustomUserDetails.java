@@ -1,55 +1,63 @@
 package OnlineStoreApp.demo.model;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import java.util.Collection;
 
-public class CustomUserDetails implements UserDetails  {
+@Getter
+@Setter
+@NoArgsConstructor
+public class CustomUserDetails  {
     private User user;
-
-    public CustomUserDetails(User user){
-        this.user=user;
-    }
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities(){
-        return null;
-    }
-
-    @Override
-    public String getPassword() {
-        return user.getPassword();
-    }
-
-    @Override
-    public String getUsername() {
-        return user.getEmail();
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return false;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return false;
-    }
+    private Role role;
+    private boolean locked;
+    private boolean enabled;
 
 
-    public String getFullName(){
-        return user.getFirstName() + " " + user.getLastName();
-    }
+//    public CustomUserDetails(User user){
+//        this.user=user;
+//    }
+//    @Override
+//    public Collection<? extends GrantedAuthority> getAuthorities(){
+//        return null;
+//    }
+//
+//    @Override
+//    public String getPassword() {
+//        return user.getPassword();
+//    }
+//
+//    @Override
+//    public String getUsername() {
+//        return user.getEmail();
+//    }
+//
+//    @Override
+//    public boolean isAccountNonExpired() {
+//        return false;
+//    }
+//
+//    @Override
+//    public boolean isAccountNonLocked() {
+//        return !locked;
+//    }
+//
+//    @Override
+//    public boolean isCredentialsNonExpired() {
+//        return false;
+//    }
+//
+//    @Override
+//    public boolean isEnabled() {
+//        return enabled;
+//    }
+
+
+//    public String getFullName(){
+//        return user.getFirstName() + " " + user.getLastName();
+//    }
+
 
 
 

@@ -36,16 +36,6 @@
 			<version>2.2.2.RELEASE</version>
 
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>bootstrap</artifactId>
-			<version>4.3.1</version>
-		</dependency>
 
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -91,18 +81,15 @@
 			<groupId>com.jayway.jsonpath</groupId>
 			<artifactId>json-path</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-crypto</artifactId>
-			<version>3.1.0.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-core</artifactId>
-			<version>5.0.0.RELEASE</version>
-		</dependency>
 
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!--<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>-->
 
 		<!--		</dependency>-->
 	</dependencies>
@@ -124,11 +111,10 @@
 		</plugins>
 	</build>
 
-	<!--	<resources>-->
-	<!--		<resource>-->
-	<!--			<directory>sre/main/resources</directory>-->
-	<!--		</resource>-->
-	<!--	</resources>-->
-
+<!--	&lt;!&ndash;	<resources>&ndash;&gt;-->
+<!--	&lt;!&ndash;		<resource>&ndash;&gt;-->
+<!--	&lt;!&ndash;			<directory>sre/main/resources</directory>&ndash;&gt;-->
+<!--	&lt;!&ndash;		</resource>&ndash;&gt;-->
+<!--	&lt;!&ndash;	</resources>&ndash;&gt;-->
 
 </project>

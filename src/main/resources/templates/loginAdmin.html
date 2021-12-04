@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in for Admins</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+
+<body>
+<!-- header -->
+<nav class="navbar-custom navbar navbar-expand-lg navbar-light  pt-0 mt-0 pb-0 mb-0">
+    <nav class="navbar navbar-light pt-0 mt-0 pb-0 mb-0">
+        <a class="navbar-brand mr-5" th:href="@{index}">
+            <img th:src="@{/images/logo.png}" width="200" height=auto alt="">
+        </a>
+    </nav>
+    <div class="collapse navbar-collapse ml-5 pt-5 pb-2 pr-5" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown" >
+                <a class="nav-link dropdown-toggle" href="/OnlineStore/demo/templates/shop.html" id="navbarDropdown"
+                   role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false" style="color: #1a2214;">shop</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">plants</a>
+                    <a class="dropdown-item" href="#">planters</a>
+                    <a class="dropdown-item" href="#">plant care</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" th:href="@{shop}">all products</a>
+                </div>
+            </li>
+            <li class="nav-item pl-9">
+                <a class="nav-link" th:href="@{wishlist}">
+                    <button class="btn btn-outline-* pt-1 bg-transparent" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-heart" viewBox="0 0 16 16">
+                            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                        </svg><i class="bi bi-heart"></i></button></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{account}">
+                    <button class="btn btn-outline-* pt-1 bg-transparent" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                        </svg><i class="bi bi-person"></i></button></a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{cart}">
+                    <button class="btn btn-outline-* pt-1 bg-transparent" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                        </svg><i class="bi bi-cart3"></i></button></a>
+            </li>
+
+
+        </ul>
+        <form class="form-inline my-2">
+            <input class="form-control mr-sm-2 " type="search" placeholder="looking for something?" aria-label="Search">
+            <button class="btn btn-outline-* my-2 my-sm-0" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+            </svg><i class="bi bi-search"></i></button>
+        </form>
+    </div>
+</nav>
+
+
+
+<!-- body -->
+<div class="container" style="display: flex; justify-content: center; background: none">
+    <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 pb-4">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">Admin access</div>
+                <div style="float:right; font-size: 80%; position: relative; top:-10px color: #1a2214;"><a style="color: #556f41;">forgot password?</a></div>
+            </div>
+
+            <div style="padding-top:30px" class="panel-body">
+                <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+
+                login form
+                <form id="loginform" class="form-horizontal" role="form" th:action="@{/loginAdmin}" th:object="${adminLoginForm}" method="post">
+
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input id="login-username" type="text" th:field="*{email}" class="form-control" name="username" value="" placeholder="email">
+                    </div>
+
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input id="login-password" type="password" th:field="*{password}" class="form-control" name="password" placeholder="password">
+                    </div>
+
+                    <div class="input-group">
+                        <div class="checkbox">
+                            <label>
+                                <input id="login-remember" type="checkbox" name="remember" value="1"> save info for next time
+                            </label>
+                        </div>
+                    </div>
+
+                    <div style="margin-top:10px " class="form-group">
+                        <div class=" controls mt-3">
+                            <a id="btn-login"  class="btn btn-success" th:href="@{/shopAdmin}">login</a>
+
+                            <!--<div th:if="${email}='admin@admin.com'">
+                            <a id="btn-login-Admin"  class="btn btn-success" th:href="@{/shopAdmin}">login</a></div>
+        -->
+                            <!--
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="control">
+                                                <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%">
+                                                    don't have an account yet?
+                                                    <a style="color: #556f41;" href="#register" onclick="$('#loginbox').hide(); $('#signupbox').show()">
+                                                        register here
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                  </div>
+                                </div>
+                              </div>
+
+
+                              <div  style="margin-top:50px" class=" col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                                <div class="panel panel-info">
+                                  <div class="panel-heading">
+                                    <div class="panel-title" style="margin-bottom: 25px">register</div>
+                                    <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" style="color: #556f41;" onclick=" $('#signupbox').hide(); $('#loginbox').show()">sign in instead?</a></div>
+                                  </div>
+
+
+                                  <div class="panel-body">
+
+
+                                  </div>
+                                </div>
+
+
+                              </div>
+                            </div>
+
+
+
+                            <!- footer -->
+                            <section class="footer-section">
+                                <div class ="social-links">
+                                    <ul>
+                                        <li><button class="btn btn-outline-* pt-1 bg-transparent" type="button">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                                                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/></svg>
+                                            <i class="bi bi-facebook"></i></button></li>
+                                        <li><button class="btn btn-outline-* pt-1 bg-transparent" type="button">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                                                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                                            </svg>
+                                        </button><i class="bi bi-instagram"></i></li>
+                                        <li><button class="btn btn-outline-* pt-1 bg-transparent" type="button">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pin-map" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8l3-4z"/>
+                                                <path fill-rule="evenodd" d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"/>
+                                            </svg>
+                                        </button><i class="bi bi-pin-map"></i></li>
+                                    </ul>
+                                </div>
+                                <div class="footer-links">
+                                    <a href="">imprint</a>
+                                    <a href="">delivery & returns</a>
+                                    <a href="">terms & conditions</a>
+                                    <a href="">privacy</a>
+                                    <a href="">contact</a>
+                                </div>
+                            </section>
+
+                            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+                            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>

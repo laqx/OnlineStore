@@ -27,8 +27,8 @@ public class Product {
 
     }
 
-    public long getId() {
-        return id;
+    public long getId(String id) {
+        return this.id;
     }
 
     public void setId(long id) {

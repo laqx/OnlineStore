@@ -72,4 +72,20 @@ public class UserDao {
         RowMapper<User> rowMapper = (rs, rowNumber) -> mapUser(rs);
         return jdbcTemplate.query("SELECT * FROM users WHERE name = ?", rowMapper, name);
     }
+    public String findPasswordByEmail (Connection connection, String password){
+        String query ="SELECT password FROM users WHERE email = ?";
+        User user = new User();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, password);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while(rs.next()) {
+                user.setPassword(rs.getString("password")); ;
+
+            }
+        } catch (SQLException var5) {
+        }
+        return password;
+    }
 }
