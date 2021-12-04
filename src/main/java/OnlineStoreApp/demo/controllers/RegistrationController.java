@@ -22,6 +22,7 @@ public class RegistrationController {
         User validateUser = userService.validateUser(user);
 
 
+
         return "register-success";
     }
 

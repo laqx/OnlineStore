@@ -32,6 +32,7 @@ public class LoginController {
     @PostMapping("/login")
     public String getLoggedUserAccount(@ModelAttribute LoggedUser loggedUser, Model model){
         userService.validateLoggedUser();
+      /*  if (loggedUser== userService.loadUserByEmail()*/
 
     @PostMapping("/account_signed_in")
     public String handleLoggedUser (@ModelAttribute LoggedUser loggeduser, Model model){
