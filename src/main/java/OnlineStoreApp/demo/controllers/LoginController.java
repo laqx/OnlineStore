@@ -18,10 +18,17 @@ public class LoginController {
     private UserService userService;
 
     //account.html
+<<<<<<< HEAD
     @GetMapping("/login")
     public String getLoginAccountPage(Model model){
         model.addAttribute("loginForm", new LoggedUser());
         return "login";
+=======
+    @GetMapping("/account")
+    public String getLoginPage(Model model) {
+        model.addAttribute("loginData", new LoggedUser());
+        return "account";
+>>>>>>> 8220e98 (login update)
     }
     @PostMapping("/login")
     public String getLoggedUserAccount( @ModelAttribute LoggedUser loggedUser, Model model){
@@ -31,6 +38,18 @@ public class LoginController {
            return "shop";
        } return "login";
 
+    @PostMapping("/account_signed_in")
+    public String handleLoggedUser (@ModelAttribute LoggedUser loggeduser, Model model){
+
+//        userService.checkUserPasswordByEmail(loggeduser.password);
+
+
+        /*BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);*/
+
+        return "user-profile";
+    }
 
     }
 

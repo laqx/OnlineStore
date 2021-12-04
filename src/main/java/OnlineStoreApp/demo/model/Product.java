@@ -16,6 +16,7 @@ public class Product {
     private String description;
     private long subcategory_id_p;
 
+
     public Product (long id, Subcategory subcategory, String title, BigDecimal price, //int discount, boolean inStock,//
                     int quantity, String description, long subcategory_id_p){
         this.id=id;
