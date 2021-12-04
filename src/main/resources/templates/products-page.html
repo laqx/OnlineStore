@@ -5,23 +5,26 @@
     <title>Products</title>
 </head>
 <body>
-<!--<div th:each="c : ${products}" style="display: flex;">-->
-<!--    <div th:text="${c.id}"></div>-->
-<!--    <div th:text="${c.title}"></div>-->
-<!--    <div th:text="${c.price}"></div>-->
-<!--    <div th:text="${c.user_id}"></div>-->
-<!--    <div th:text="${c.quantity}"></div>-->
+<div th:each="c : ${product}" style="display: flex;">
+    <div th:text="${c.id} + ': '"></div>
+    <div th:text="${c.title} + ' - '"></div>
+    <div th:text="${c.price} + ' :: '"></div>
+    <div th:text="${c.quantity}"></div>
 <!--    <div th:text="${c.subcategory_id_p}"></div>-->
-<!--    <div th:text="${c.description}"></div>-->
-<!--</div>-->
+    <div th:text="${c.description} + ' :: '"></div>
+</div>
 <div>
     <form th:action="@{/products/create}" th:object="${newProduct}" method="POST">
         <input type="text" placeholder="Title" th:field="*{title}">
         <input type="text" placeholder="Price" th:field="*{price}">
-        <input type="text" placeholder="Users_id" th:field="*{users_id}">
         <input type="text" placeholder="Quantity" th:field="*{quantity}">
-        <input type="text" placeholder="Subcategory_id_p" th:field="*{subcategory_id_p}">
+<!--        <input type="text" placeholder="Subcategory_id_p" th:field="*{subcategory_id_p}">-->
         <input type="text" placeholder="Description" th:field="*{description}">
+        <select th:field="*{subcategory_id_p}">
+            <th:block th:each="subcat : ${subcategory}">
+                <option th:value="${subcat.id}" th:text="${subcat.name}"></option>
+            </th:block>
+        </select>
         <input type="submit" value="Add">
     </form>
 </div>

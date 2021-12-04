@@ -1,33 +1,41 @@
 package OnlineStoreApp.demo.model;
 
-import javax.persistence.Entity;
-import javax.validation.constraints.NotBlank;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
-
+//@Entity
+//@Table(name = "users")
 public class User {
+//    @Id
+//    @Column(name = "user_id")
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    private String firstName;
+    private String lastName;
+    private String address;
+    private String email;
+    private String password;
+//
+//    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    @JoinTable(
+//            name= "users_roles",
+//            joinColumns = @JoinColumn(name = "user_id"),
+//            inverseJoinColumns = @JoinColumn(name = "role_id")
+//    )
+//    private Set<Roles> roles = new HashSet<>();
 
-    String role = "USER";
-    long id;
-    String firstName;
-    String lastName;
-    String address;
-    String email;
-    String password;
-
-
-
-    public User(long id, String firstName, String lastName, String address, String email, String password){
-        this.id=id;
+    public User(long id, String firstName, String lastName, String address, String email, String password) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
         this.email = email;
-        this.password=password;
-
-
+        this.password = password;
     }
 
-    public User(){}
+    public User() {
+    }
 
     public long getId() {
         return id;
@@ -53,11 +61,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getAddress(){
+    public String getAddress() {
         return address;
     }
 
-    public void setAddress(String address){
+    public void setAddress(String address) {
         this.address = address;
     }
 
@@ -77,11 +85,12 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
+//    public Set<Roles> getRoles() {
+//        return roles;
+//    }
+//
+//    public void setRoles(Set<Roles> roles) {
+//        this.roles = roles;
+//    }
 }
+
