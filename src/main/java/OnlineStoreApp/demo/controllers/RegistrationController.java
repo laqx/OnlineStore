@@ -18,7 +18,7 @@ public class RegistrationController {
     //register-success.html
     @PostMapping("/account")
     public String getUserAccount(@ModelAttribute User user, Model model){
-//        user.setRole(Role.ADMIN);
+
         User validateUser = userService.validateUser(user);
 
 

@@ -7,6 +7,7 @@ import OnlineStoreApp.demo.services.UserService;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,9 +31,12 @@ public class LoginController {
 >>>>>>> 8220e98 (login update)
     }
     @PostMapping("/login")
-    public String getLoggedUserAccount(@ModelAttribute LoggedUser loggedUser, Model model){
-        userService.validateLoggedUser();
-      /*  if (loggedUser== userService.loadUserByEmail()*/
+    public String getLoggedUserAccount( @ModelAttribute LoggedUser loggedUser, Model model){
+       User loadUserByEmail = userService.loadUserByEmail(loggedUser.getEmail());
+       User loadUserByPassword = userService.loadUserByPassword(loggedUser.getPassword());
+       if((loadUserByEmail.getEmail()).equals(loggedUser.email) && (loadUserByPassword).equals(loggedUser.password)){
+           return "shop";
+       } return "login";
 
     @PostMapping("/account_signed_in")
     public String handleLoggedUser (@ModelAttribute LoggedUser loggeduser, Model model){
@@ -47,7 +51,6 @@ public class LoginController {
         return "user-profile";
     }
 
-        return "user-profile";
     }
 
 

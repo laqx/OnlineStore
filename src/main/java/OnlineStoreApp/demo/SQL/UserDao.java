@@ -49,104 +49,50 @@ public class UserDao {
 
     }
 
-<<<<<<< HEAD
-    public User findByEmail(Connection connection, String email) {
-        String query = "SELECT * FROM users WHERE email = ?";
-=======
-  /*  public User findByEmail (Connection connection, String email){
-        String query ="SELECT * FROM users WHERE email = ?";
->>>>>>> 8220e98 (login update)
-        User user = new User();
+    public User findByEmail ( String email){
+
+        User userSQL = new User();
+
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, email);
-            ResultSet rs = preparedStatement.executeQuery();
-
-            while (rs.next()) {
-                user.setEmail(rs.getString("email"));
-
-            }
-        } catch (SQLException var5) {
-        }
-        return user;
-    }
-
-    //    @Query("SELECT FROM users WHERE u.name = :name")
-//    public User getUserByName(@Param("name") String name) {
-//        User user = new User();
-//        return user;
-//    }
-    public List<User> findUserByName(String name) {
-        RowMapper<User> rowMapper = (rs, rowNumber) -> mapUser(rs);
-        return jdbcTemplate.query("SELECT * FROM users WHERE name = ?", rowMapper, name);
-    }
-    public String findPasswordByEmail (Connection connection, String password){
-        String query ="SELECT password FROM users WHERE email = ?";
-        User user = new User();
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, password);
-            ResultSet rs = preparedStatement.executeQuery();
-
-            while(rs.next()) {
-                user.setPassword(rs.getString("password")); ;
-
-            }
-        } catch (SQLException var5) {
-        }
-<<<<<<< HEAD
-        return password;
-=======
-     return user;
-    }*/
-
-    public User findByEmail(String email){
-        String query ="SELECT * FROM users WHERE email = ?";
-        User user = new User();
-        try {
+            String query ="SELECT * FROM users WHERE email = ?";
             Connection connection = DriverManager.getConnection(
-
-//            "jdbc:mysql://localhost:3306/OnlineStore", "root", "Oxford1984");
+              //            "jdbc:mysql://localhost:3306/OnlineStore", "root", "Oxford1984");
                     "jdbc:mysql://localhost:3306/onlinestore ", "root", "root");
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, email);
             ResultSet rs = preparedStatement.executeQuery();
 
             while(rs.next()) {
-                user.setEmail(rs.getString("email")) ;
+                userSQL.setEmail(rs.getString("email")) ;
 
             }
         } catch (SQLException var5) {
         }
-        return user;
 
->>>>>>> 8220e98 (login update)
+     return userSQL;
     }
-    public String findPasswordByEmail (String email, String password){
-        String query ="SELECT password FROM onlinestore.users where email=?";
-        User user = new User();
-        try {
-            Connection connection = DriverManager.getConnection(
 
-//            "jdbc:mysql://localhost:3306/OnlineStore", "root", "Oxford1984");
+    public User findByPassword (String password){
+        User userSQL = new User();
+
+        try {
+            String query ="SELECT * FROM users WHERE password = ?";
+            Connection connection = DriverManager.getConnection(
+              //            "jdbc:mysql://localhost:3306/OnlineStore", "root", "Oxford1984");
                     "jdbc:mysql://localhost:3306/onlinestore ", "root", "root");
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, password);
             ResultSet rs = preparedStatement.executeQuery();
 
             while(rs.next()) {
-                user.setEmail(rs.getString("password")) ;
+                userSQL.setPassword(rs.getString("password")); ;
 
             }
         } catch (SQLException var5) {
-        } return password;
+        }
 
-
-
+        return userSQL;
     }
 
-       /* BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String encodedPassword = passwordEncoder.encode(user.getPassword());
-        user.setPassword(encodedPassword);*/
 
 }

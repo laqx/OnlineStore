@@ -28,8 +28,8 @@ public class Product {
         this.subcategory_id_p=subcategory_id_p;
     }
 
-    public long getId(String id) {
-        return this.id;
+    public long getId() {
+        return id;
     }
 
     public void setId(long id) {
@@ -94,5 +94,4 @@ public class Product {
         }
     }*/
 }
-
 
