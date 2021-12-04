@@ -5,8 +5,7 @@ import OnlineStoreApp.demo.model.CustomUserDetails;
 import OnlineStoreApp.demo.model.LoggedUser;
 import OnlineStoreApp.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
 import org.springframework.stereotype.Service;
 
 import java.sql.Connection;
@@ -42,24 +41,32 @@ public class UserService {
     public void validateLoggedUser (LoggedUser loggedUser){
 
     }
-    public UserDetails loadUserByEmail (Connection connection, String email) throws UsernameNotFoundException{
-        User user = userDao.findByEmail(connection, email);
-        if (user ==null){
-            throw new UsernameNotFoundException("User not found");
+    public User loadUserByEmail (Connection connection, String email) throws Exception{
+        User userSQL = userDao.findByEmail(connection, email);
+        if (userSQL ==null){
+            throw new Exception("email not found");
         }
-        return new CustomUserDetails(user);
+        return userSQL;
+    }
+    public User loadUserByPassword (Connection connection, String password) throws Exception{
+        User userSQL = userDao.findByPassword(connection, password);
+        if (userSQL ==null){
+            throw new Exception("password not found");
+        }
+        return userSQL;
     }
 
 
-    public UserDetails checkUserPasswordByEmail (Connection connection, String email, String password) throws Exception {
-        User user = userDao.findByEmail(connection,email);
+   /* public User checkUserPasswordByEmail (Connection connection,  String password) throws Exception {
+        User userSQL = userDao.findByEmail(connection,password);
         if (password != userDao.findPasswordByEmail(connection, password)){
             throw new Exception("password does not match");
         }
-        return new CustomUserDetails(user);
-    }
+        return userSQL;
+    }*/
 
     public boolean validateLoggedUser(){
+/*        if (loadUserByEmail())*/
         
      return true;
     }

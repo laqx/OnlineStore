@@ -1,7 +1,5 @@
 package OnlineStoreApp.demo.controllers;
 import OnlineStoreApp.demo.model.Role;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
 
 import OnlineStoreApp.demo.model.User;
 import OnlineStoreApp.demo.services.UserService;
@@ -23,9 +21,7 @@ public class RegistrationController {
 //        user.setRole(Role.ADMIN);
         User validateUser = userService.validateUser(user);
 
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String encodedPassword = passwordEncoder.encode(user.getPassword());
-        user.setPassword(encodedPassword);
+
 
         return "register-success";
     }
