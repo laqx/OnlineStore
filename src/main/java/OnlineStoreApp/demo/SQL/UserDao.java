@@ -2,8 +2,11 @@ package OnlineStoreApp.demo.SQL;
 
 import OnlineStoreApp.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import java.io.PrintStream;
@@ -37,27 +40,59 @@ public class UserDao {
         return user;
     }
 
-    public void saveUser(User user){
+    public void saveUser(User user) {
 
         jdbcTemplate.update("INSERT INTO users (firstname, lastname,  address, email, password) VALUES (?,?,?,?,?)",
-        user.getFirstName(), user.getLastName(), user.getAddress(), user.getEmail(), user.getPassword());
+                user.getFirstName(), user.getLastName(), user.getAddress(), user.getEmail(), user.getPassword());
+
+
 
     }
 
-    public User findByEmail (Connection connection, String email){
-        String query ="SELECT * FROM users WHERE email = ?";
-        User user = new User();
+    public User findByEmail ( String email){
+
+        User userSQL = new User();
+
         try {
+            String query ="SELECT * FROM users WHERE email = ?";
+            Connection connection = DriverManager.getConnection(
+              //            "jdbc:mysql://localhost:3306/OnlineStore", "root", "Oxford1984");
+                    "jdbc:mysql://localhost:3306/onlinestore ", "root", "root");
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, email);
             ResultSet rs = preparedStatement.executeQuery();
 
             while(rs.next()) {
-                user.setEmail(rs.getString("email")) ;
+                userSQL.setEmail(rs.getString("email")) ;
 
             }
         } catch (SQLException var5) {
         }
-     return user;
+
+     return userSQL;
     }
+
+    public User findByPassword (String password){
+        User userSQL = new User();
+
+        try {
+            String query ="SELECT * FROM users WHERE password = ?";
+            Connection connection = DriverManager.getConnection(
+              //            "jdbc:mysql://localhost:3306/OnlineStore", "root", "Oxford1984");
+                    "jdbc:mysql://localhost:3306/onlinestore ", "root", "root");
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, password);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while(rs.next()) {
+                userSQL.setPassword(rs.getString("password")); ;
+
+            }
+        } catch (SQLException var5) {
+        }
+
+        return userSQL;
+    }
+
+
 }

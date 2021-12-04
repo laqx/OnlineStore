@@ -1,14 +1,25 @@
 package OnlineStoreApp.demo.model;
 
+import javax.persistence.Entity;
+import javax.validation.constraints.NotBlank;
+
+
 public class User {
+
+    String role = "USER";
     long id;
     String firstName;
     String lastName;
     String address;
     String email;
+<<<<<<< HEAD
     String password;
+
+=======
+   public String password;
 //    String role;
 //  Role role;
+>>>>>>> 8220e98 (login update)
 
 
     public User(long id, String firstName, String lastName, String address, String email, String password){
@@ -72,11 +83,11 @@ public class User {
         this.password = password;
     }
 
-    /*public String getRole() {
+    public String getRole() {
         return role;
     }
 
     public void setRole(String role) {
         this.role = role;
-    }*/
+    }
 }
