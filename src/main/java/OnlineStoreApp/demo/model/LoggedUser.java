@@ -23,3 +23,4 @@ public class LoggedUser extends User{
         this.password = password;
     }
 }
+

@@ -1,5 +1,4 @@
 package OnlineStoreApp.demo.controllers;
-import OnlineStoreApp.demo.model.Role;
 
 
 import OnlineStoreApp.demo.model.User;

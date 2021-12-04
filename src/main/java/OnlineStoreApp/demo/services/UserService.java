@@ -1,13 +1,10 @@
 package OnlineStoreApp.demo.services;
 
 import OnlineStoreApp.demo.SQL.UserDao;
-import OnlineStoreApp.demo.model.CustomUserDetails;
-import OnlineStoreApp.demo.model.LoggedUser;
 import OnlineStoreApp.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Connection;
 import java.util.List;
 
 @Service
