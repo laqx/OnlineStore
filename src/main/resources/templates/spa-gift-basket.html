@@ -2,8 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>shop</title>
+  <meta name="viewport" content="with=device-width, initial scale=1.0">
+  <title>wishlist</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" th:href="@{/css/style.css}">
@@ -67,145 +67,119 @@
   </div>
 </nav>
 
+<!--<div th:each="c : ${products}" style="display: flex;">-->
+<!--    <div th:text="${c.id}"></div>-->
+<!--    <div th:text="${c.title}"></div>-->
+<!--    <div th:text="${c.price}"></div>-->
+<!--    <div th:text="${c.user_id}"></div>-->
+<!--    <div th:text="${c.quantity}"></div>-->
+<!--    <div th:text="${c.subcategory_id_p}"></div>-->
+<!--    <div th:text="${c.description}"></div>-->
+<!--</div>-->
+<!--cart items details-->
 
-<!-- body -->
-<!--<div class="container mt-5 mb-5">
-  <div align="center">
-    <a class="btn btn-success btn:focus btn:active" th:href="@{/products}" role="button" >Create new product</a>
-    <a class="btn btn-success btn:focus btn:active" th:href="@{/category}" role="button" >Create new category</a>
-    <a class="btn btn-success btn:focus btn:active" th:href="@{/subcategory}" role="button" >Create new subcategory</a>
-    <div class="admin">
-      <img class="card-img-top" id="admin" src="images/admin1.jpg" alt="Card image cap">
-    </div>
-    &nbsp
-  </div>
-</div>-->
-<div class="container mt-5 mb-5">
-  <div align="center">
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="images/admin1.jpg" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title"></h5>
-    <p class="card-text"></p>
-    <p><a class="btn btn-success btn:focus btn:active" th:href="@{/products}" role="button" >Create new product</a></p>
-    <p><a class="btn btn-success btn:focus btn:active" th:href="@{/categories}" role="button" >Create new category</a></p>
-    <p><a class="btn btn-success btn:focus btn:active" th:href="@{/subcategories}" role="button" >Create new subcategory</a></p>
-  </div>
-</div>
+<section class="pt-5 pb-5">
+  <div class="container">
+    <div class="row w-100">
+      <div class="col-lg-12 col-md-12 col-12">
+        <h3 class="display-5 mb-2 text-center">Spa Gift Baskets</h3>
+        <p class="mb-5 text-center">
 
-  </div>
-</div>
+        <table id="shoppingCart" class="table table-condensed table-responsive">
+          <thead>
+          <tr>
+            <th style="width:60%">item</th>
+            <th style="width:12%">price</th>
+            <th style="width:10%">quantity</th>
+            <th style="width:16%"></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td data-th="Product">
+              <div class="row">
+                <div class="col-md-3 text-left">
+                  <img src="images/SpaGiftBasket Canyon Sunshine in a Box.jpeg" alt="" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
+                </div>
+                <div class="col-md-9 text-left mt-sm-2">
+                  <h4>Canyon Sunshine in a Box</h4>
+                  <p class="font-weight-light">Local brand</p>
+                </div>
+              </div>
+            </td>
+            <td data-th="Price">EUR 25.00</td>
+            <td data-th="Quantity">
+              <input type="number" class="form-control form-control-lg text-center" value="1">
+            </td>
+            <td class="actions" data-th="">
+              <div class="text-right">
+                <button type="button" class="btn btn-success">Add to cart</button>
 
-<!--
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td data-th="Product">
+              <div class="row">
+                <div class="col-md-3 text-left">
+                  <img src="images/SpaGiftBasket Cucumber & Oil Spa Gift Basket.jpeg" alt="" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
+                </div>
+                <div class="col-md-9 text-left mt-sm-2">
+                  <h4>Cucumber & Oil Spa Gift Basket</h4>
+                  <p class="font-weight-light">Local brand</p>
+                </div>
+              </div>
+            </td>
+            <td data-th="Price">EUR 30.00</td>
+            <td data-th="Quantity">
+              <input type="number" class="form-control form-control-lg text-center" value="1">
+            </td>
+            <td class="actions" data-th="">
+              <div class="text-right">
+                <button type="button" class="btn btn-success">Add to cart</button>
 
-  </div>
-  <div class="row">
-    <div class="col-md-3">
-      <div class="ibox">
-        <div class="ibox-content product-box">
-          <div class="product-imitation">
-            [ INFO ]
-          </div>
-          <div class="product-desc">
-                    <span class="product-price">
-                        $10
-                    </span>
-            <small class="text-muted">Category</small>
-            <a href="#" class="product-name"> Product</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td data-th="Product">
+              <div class="row">
+                <div class="col-md-3 text-left">
+                  <img src="images/SpaGiftBasket Palisades Canyon Refreshing Retreat.jpeg" alt="" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
+                </div>
+                <div class="col-md-9 text-left mt-sm-2">
+                  <h4>Palisades Canyon Refreshing Retreat</h4>
+                  <p class="font-weight-light">Local brand</p>
+                </div>
+              </div>
+            </td>
+            <td data-th="Price">EUR 28.00</td>
+            <td data-th="Quantity">
+              <input type="number" class="form-control form-control-lg text-center" value="1">
+            </td>
+            <td class="actions" data-th="">
+              <div class="text-right">
+                <button type="button" class="btn btn-success">Add to cart</button>
 
-            <div class="small m-t-xs">
-              Many desktop publishing packages and web page editors now.
-            </div>
-            <div class="m-t text-righ">
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
 
-              <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
-    <div class="col-md-3">
-      <div class="ibox">
-        <div class="ibox-content product-box">
+    <div class="row mt-4 d-flex align-items-center">
 
-          <div class="product-imitation">
-            [ INFO ]
-          </div>
-          <div class="product-desc">
-                    <span class="product-price">
-                        $10
-                    </span>
-            <small class="text-muted">Category</small>
-            <a href="#" class="product-name"> Product</a>
-
-
-
-            <div class="small m-t-xs">
-              Many desktop publishing packages and web page editors now.
-            </div>
-            <div class="m-t text-right">
-
-              <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="ibox">
-        <div class="ibox-content product-box active">
-
-          <div class="product-imitation">
-            [ INFO ]
-          </div>
-          <div class="product-desc">
-                    <span class="product-price">
-                        $10
-                    </span>
-            <small class="text-muted">Category</small>
-            <a href="#" class="product-name"> Product</a>
-
-
-
-            <div class="small m-t-xs">
-              Many desktop publishing packages and web page editors now.
-            </div>
-            <div class="m-t text-righ">
-
-              <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="ibox">
-        <div class="ibox-content product-box">
-
-          <div class="product-imitation">
-            [ INFO ]
-          </div>
-          <div class="product-desc">
-                    <span class="product-price">
-                        $10
-                    </span>
-            <small class="text-muted">Category</small>
-            <a href="#" class="product-name"> Product</a>
-            <div class="small m-t-xs">
-              Many desktop publishing packages and web page editors now.
-            </div>
-            <div class="m-t text-righ">
-              <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
-            </div>
-          </div>
-        </div>
+      <div class="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">
+        <a href="/shop">
+          <i class="fas fa-arrow-left mr-2"></i> Back to shop</a>
       </div>
     </div>
   </div>
-</div>
+</section>
 
--->
-
+<
 
 <!-- footer -->
 <section class="footer-section">

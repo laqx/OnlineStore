@@ -4,6 +4,7 @@ import OnlineStoreApp.demo.model.Category;
 import OnlineStoreApp.demo.model.Product;
 import OnlineStoreApp.demo.model.Subcategory;
 import OnlineStoreApp.demo.services.AdminService;
+import OnlineStoreApp.demo.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,9 @@ public class AdminController {
 
     @Autowired
     private AdminService adminService;
+
+    @Autowired
+    private ProductService productService;
 
     @GetMapping("/categories")
     public String getCategories(Model model) {
@@ -58,4 +62,6 @@ public class AdminController {
 
         return "redirect:/subcategories";
     }
+
+
 }

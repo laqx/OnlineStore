@@ -1,12 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
->
-
-<!--xmlns:sec="https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity5">-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>shop</title>
+    <meta name="viewport" content="with=device-width, initial scale=1.0">
+    <title>wishlist</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/css/style.css}">
@@ -70,38 +67,117 @@
     </div>
 </nav>
 
+<!--<div th:each="c : ${products}" style="display: flex;">-->
+<!--    <div th:text="${c.id}"></div>-->
+<!--    <div th:text="${c.title}"></div>-->
+<!--    <div th:text="${c.price}"></div>-->
+<!--    <div th:text="${c.user_id}"></div>-->
+<!--    <div th:text="${c.quantity}"></div>-->
+<!--    <div th:text="${c.subcategory_id_p}"></div>-->
+<!--    <div th:text="${c.description}"></div>-->
+<!--</div>-->
+<!--cart items details-->
 
-<!-- body -->
+<section class="pt-5 pb-5">
+    <div class="container">
+        <div class="row w-100">
+            <div class="col-lg-12 col-md-12 col-12">
+                <h3 class="display-5 mb-2 text-center">Plants</h3>
+                <p class="mb-5 text-center">
 
-<div class="card-group">
-    <div class="card">
-        <a href="/shop-category-flowers">
-        <img class="card-img-top" src="images/categoryPictureFlowers.jpeg" alt="Card image cap">
-        </a>
-        <div class="card-body">
-            <h5 class="card-title">Flowers</h5>
-            <p class="card-text">See our full selection of fresh and seasonal flowers. Or maybe looking for indoor plant gifts for a friend or family? House plants make an excellent gift, whether for a special occasion or for no reason at all.</p>
+                <table id="shoppingCart" class="table table-condensed table-responsive">
+                    <thead>
+                    <tr>
+                        <th style="width:60%">item</th>
+                        <th style="width:12%">price</th>
+                        <th style="width:10%">quantity</th>
+                        <th style="width:16%"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td data-th="Product">
+                            <div class="row">
+                                <div class="col-md-3 text-left">
+                                    <img src="images/Plants autumn Glow Orchid.jpeg" alt="" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
+                                </div>
+                                <div class="col-md-9 text-left mt-sm-2">
+                                    <h4>Autumn Glow Orchid</h4>
+                                    <p class="font-weight-light">Local brand</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td data-th="Price">EUR 12.00</td>
+                        <td data-th="Quantity">
+                            <input type="number" class="form-control form-control-lg text-center" value="1">
+                        </td>
+                        <td class="actions" data-th="">
+                            <div class="text-right">
+                                <button type="button" class="btn btn-success">Add to cart</button>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-th="Product">
+                            <div class="row">
+                                <div class="col-md-3 text-left">
+                                    <img src="images/Plants Bliss White Orchid.jpeg" alt="" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
+                                </div>
+                                <div class="col-md-9 text-left mt-sm-2">
+                                    <h4>Bliss White Orchid</h4>
+                                    <p class="font-weight-light">Local brand</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td data-th="Price">EUR 12.00</td>
+                        <td data-th="Quantity">
+                            <input type="number" class="form-control form-control-lg text-center" value="1">
+                        </td>
+                        <td class="actions" data-th="">
+                            <div class="text-right">
+                                <button type="button" class="btn btn-success">Add to cart</button>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-th="Product">
+                            <div class="row">
+                                <div class="col-md-3 text-left">
+                                    <img src="images/Plants Blooming Azalea Bonsai.jpeg" alt="" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
+                                </div>
+                                <div class="col-md-9 text-left mt-sm-2">
+                                    <h4> Azalea Bonsai</h4>
+                                    <p class="font-weight-light">Local brand</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td data-th="Price">EUR 58.00</td>
+                        <td data-th="Quantity">
+                            <input type="number" class="form-control form-control-lg text-center" value="1">
+                        </td>
+                        <td class="actions" data-th="">
+                            <div class="text-right">
+                                <button type="button" class="btn btn-success">Add to cart</button>
+
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
         </div>
-        <div class="card-footer">
-           <!-- <small> <a href="#" class="card-link text-muted" >Check for more</a></small>-->
+        <div class="row mt-4 d-flex align-items-center">
+
+            <div class="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">
+                <a href="/shop">
+                    <i class="fas fa-arrow-left mr-2"></i> Back to shop</a>
+            </div>
         </div>
     </div>
-    <div class="card">
-        <a href="/shop-category-baskets">
-        <img class="card-img-top" src="images/categoryGiftBasket.png" alt="Card image cap">
-        </a>
-        <div class="card-body">
-            <h5 class="card-title">Gift Baskets</h5>
-            <p class="card-text">You can never go wrong sending a gift of tasty candy treats, and we have so many to pick from. And if you’re looking to send someone a meaningful and memorable gift, look no further.</p>
-
-        </div>
-        <div class="card-footer">
-            <!--<small> <a href="#" class="card-link text-muted" >Check for more</a></small>-->
-        </div>
-    </div>
-
-</div>
-
+</section>
 
 
 <!-- footer -->

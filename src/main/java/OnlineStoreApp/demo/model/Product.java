@@ -1,5 +1,6 @@
 package OnlineStoreApp.demo.model;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
@@ -8,13 +9,13 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 
 public class Product {
-    private long id;
-    private Subcategory subcategory;
-    private String title;
-    private BigDecimal price;
-    private int quantity;
-    private String description;
-    private long subcategory_id_p;
+    public long id;
+    public Subcategory subcategory;
+    public String title;
+    public BigDecimal price;
+    public int quantity;
+    public String description;
+    public long subcategory_id_p;
 
 
     public Product (long id, Subcategory subcategory, String title, BigDecimal price, //int discount, boolean inStock,//
@@ -27,6 +28,8 @@ public class Product {
         this.description=description;
         this.subcategory_id_p=subcategory_id_p;
     }
+
+
 
     public long getId() {
         return id;
@@ -84,18 +87,10 @@ public class Product {
         this.subcategory_id_p = subcategory_id_p;
     }
 
-    /* public void getOrderSum(double price, int discount, int orderQuantity){
-        double sum = 0;
-        if (quantity>=orderQuantity){
-            sum =orderQuantity*(1-0.01*discount)*price;
-            System.out.println("Order sum is " + sum);
-        } else {
-            System.out.println("Sorry, required quantity is not in stock");
-        }
-    }*/
-    public void reduceQuantityBy(int quantityToReduceBy){ // THIS SHOULD BE IN LINEITEM
-        this.quantity-=quantityToReduceBy;
-    }
+
+
+
+
 
 }
 

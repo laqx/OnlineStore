@@ -47,6 +47,60 @@ public class StoreMapping {
     public String getShopAdmin(final ModelMap modelMap){
         return "shopAdmin";
     }
+    /*//category.html
+    @GetMapping("/category")
+    public String getCategory(final ModelMap modelMap){
+        return "categories-page";
+    }
+    //subcategory.html
+    @GetMapping("/subcategory")
+    public String getSubCategory(final ModelMap modelMap){
+        return "subcategories-page";
+    }*/
 
+
+    //plants-product-page.html
+    @GetMapping("/plants")
+    public String getPlantsPage(final ModelMap modelMap){
+        return "plants-product-page";
+    }
+
+    //arrangements.html
+    @GetMapping("/arrangements")
+    public String getArrangementsPage(final ModelMap modelMap){
+        return "arrangements";
+    }
+
+
+    //candy-gift-basket.html
+    @GetMapping("/candy-gift-basket")
+    public String getCandyGiftBasketPage(final ModelMap modelMap){
+        return "candy-gift-basket";
+    }
+
+    //spa-gift-basket.html
+    @GetMapping("/spa-gift-basket")
+    public String getSpaGiftBasketPage(final ModelMap modelMap){
+        return "spa-gift-basket";
+    }
+
+    //shop-category-flowers.html
+    @GetMapping("/shop-category-flowers")
+    public String getShopCategoryFlowersPage(final ModelMap modelMap){
+        return "shop-category-flowers";
+    }
+
+    //shop-category-baskets.html
+    @GetMapping("/shop-category-baskets")
+    public String getShopCategoryBasketsPage(final ModelMap modelMap){
+        return "shop-category-baskets";
+    }
+
+
+    //category.html
+    @GetMapping("/plants/{id}")
+    public String getPlantsById(final ModelMap modelMap){
+        return "plants";
+    }
 
 }
