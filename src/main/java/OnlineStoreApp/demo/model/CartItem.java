@@ -1,8 +1,8 @@
-//package OnlineStoreApp.demo.model;
-//
-//
-//import javax.persistence.*;
-//
+package OnlineStoreApp.demo.model;
+
+//public class CartItem {
+import javax.persistence.*;
+
 //@Entity
 //@Table(name="cart_items")
 //public class CartItem {

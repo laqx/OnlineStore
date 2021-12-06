@@ -76,6 +76,19 @@
 <!--    <div th:text="${c.subcategory_id_p}"></div>-->
 <!--    <div th:text="${c.description}"></div>-->
 <!--</div>-->
+
+<div class="container" style="display: flex; justify-content: center; background: none">
+    <div id="products" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 pb-4">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title"></div>
+                <div style="float:right; font-size: 80%; position: relative; top:-10px color: #1a2214;"><a style="color: #556f41;">forgot password?</a></div>
+            </div>
+
+            <div style="padding-top:30px" class="panel-body">
+                <div style="display:none" id="product-alert" class="alert alert-danger col-sm-12"></div>
+
+
 <div th:each="c : ${product}" style="display: flex;">
     <div th:text="${c.id} + ': '"></div>
     <div th:text="${c.title} + ' - '"></div>
@@ -85,18 +98,43 @@
     <div th:text="${c.description} + ' :: '"></div>
 </div>
 <div>
-    <form th:action="@{/products/create}" th:object="${newProduct}" method="POST">
-        <input type="text" placeholder="Title" th:field="*{title}">
-        <input type="text" placeholder="Price" th:field="*{price}">
-        <input type="text" placeholder="Quantity" th:field="*{quantity}">
+    <form class="form-horizontal" role="form"  th:action="@{/products/create}" th:object="${newProduct}" method="POST">
+        <div class="form-group">
+            <label for ="title">Title</label>
+                <input type="text" class = "form-control"  id = "title" placeholder = "Title" th:field="*{title}">
+        </div>
+        <div class="form-group">
+            <label for ="price">Price</label>
+            <input type="text" class = "form-control"  id = "price" placeholder = "Price" th:field="*{price}">
+        </div>
+        <div class="form-group">
+            <label for ="price">Quantity</label>
+            <input type="text" class = "form-control"  id = "quantity" placeholder = "Quantity"  th:field="*{quantity}">
+        </div>
         <!--        <input type="text" placeholder="Subcategory_id_p" th:field="*{subcategory_id_p}">-->
-        <input type="text" placeholder="Description" th:field="*{description}">
+        <div class="form-group">
+            <label for ="description">Description</label>
+            <input type="text" class = "form-control"  id = "description" placeholder = "Description"  th:field="*{description}">
+        </div>
+        <div class="form-group">
         <select th:field="*{subcategory_id_p}">
             <th:block th:each="subcat : ${subcategory}">
                 <option th:value="${subcat.id}" th:text="${subcat.name}"></option>
             </th:block>
         </select>
-        <input type="submit" value="Add">
+            <label>Choose subcategory</label>
+        </div>
+
+        <div class="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">
+            <input class="btn btn-success" type="submit" value="Add">
+            <a th:href="@{shopAdmin}">
+                <i class="fas fa-arrow-left mr-2"></i> Back to Shop</a>
+        </div>
+
+        <div style="margin-top:10px " class="form-group">
+            <div class=" controls mt-3">
+            </div>
+        </div>
     </form>
 </div>
 

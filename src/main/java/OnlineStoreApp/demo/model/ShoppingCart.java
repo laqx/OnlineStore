@@ -6,41 +6,49 @@ import java.util.List;
 import java.util.Objects;
 
 public class ShoppingCart {
-    private List<Product> productsInCart = new ArrayList<>();
+    private  Inventory inventory;
 
-    public void addProduct(Product product){
-        this.productsInCart.add(product);
+    private List<LineProduct> productsInCart = new ArrayList<>();
+
+    public void addProduct(LineProduct lineProduct){
+        Product product = inventory.get(Long.parseLong(lineProduct.getProductId()));
+        lineProduct.setTitle(product.getTitle());
+        lineProduct.setPrice(product.getPrice());
+        this.productsInCart.add(lineProduct);
     }
 
     public int totalNumberOfProducts(){
         int totalProducts=  0;
-        for (Product product : productsInCart) {
-            totalProducts+=product.getQuantity();
+        for (LineProduct lineProduct : productsInCart) {
+            totalProducts+=lineProduct.getQuantity();
+
         }
-        return totalProducts;
+        return totalProducts;  /// check this LATER!
     }
-    public void remove(Product productToRemove){
-        boolean deleteProduct = false;
-        for (Product productInCart : productsInCart) {
-            if (Objects.equals(productInCart.getId(),productToRemove.getId())){
-                if(productToRemove.getQuantity()==productInCart.getQuantity()){
-                    deleteProduct = true;
+    public void remove(LineProduct lineProductToRemove){
+        boolean deleteLineProduct = false;
+        for (LineProduct productInCart : productsInCart) {
+            if (Objects.equals(productInCart.getProductId(),lineProductToRemove.getProductId())){
+                if(lineProductToRemove.getQuantity()==productInCart.getQuantity()){
+                    deleteLineProduct = true;
 
                 } else {
-                    productInCart.reduceQuantityBy(productToRemove.getQuantity());
+                    productInCart.reduceQuantityBy(lineProductToRemove.getQuantity());
                 }
 
             }
         }
-        if(deleteProduct){
+        if(deleteLineProduct){
 
-            this.productsInCart.remove(productToRemove);
+            this.productsInCart.remove(lineProductToRemove.getProductId());
+//            this.productsInCart.remove(lineProductToRemove);
         }
 
-        /*public List<Product> listProductsInCart(){
-            return Collections.unmodifiableList(this.productsInCart);
 
-        }*/
+
+        }
+        public List<LineProduct> listProductsInCart(){
+            return Collections.unmodifiableList(this.productsInCart);
     }
 
 }

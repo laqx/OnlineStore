@@ -3,6 +3,7 @@ package OnlineStoreApp.demo.SQL;
 import OnlineStoreApp.demo.model.Category;
 import OnlineStoreApp.demo.model.Product;
 import OnlineStoreApp.demo.model.Subcategory;
+import OnlineStoreApp.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -93,6 +94,27 @@ public class ProductDao {
         subcategory.setName(rs.getString("s_name"));
 
         return subcategory;
+    }
+
+    public Product getProductById (Long id){
+
+        Product productSQL = new Product();
+
+        try {
+            String query ="SELECT * FROM product WHERE id = ?";
+            Connection connection = DriverManager.getConnection(
+                    //            "jdbc:mysql://localhost:3306/OnlineStore", "root", "Oxford1984");
+                    "jdbc:mysql://localhost:3306/onlinestore ", "root", "root");
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setLong(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while(rs.next()) {
+                productSQL.setId(rs.getLong("id")); ;
+
+            }
+        } catch (SQLException var5) {
+        } return productSQL;
     }
 
 }
